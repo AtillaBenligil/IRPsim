@@ -1,0 +1,1538 @@
+[
+  {
+    :label "Agentennetzwerk" 
+    :icon "fa fa-spinner" 
+    :description "Agentennetzwerk in IRPact" 
+    :image "agentGraph"
+  } 
+  {
+    :label "Informationen" 
+    :description "Informationen über IRPact und das Szenario" 
+    :sections [
+      {
+        :label "Über IRPact" 
+        :set "set_InIRPactVersion" 
+        :description "IRPact v1.27.0 (x)" 
+        :tags [["InIRPactVersion" "placeholder"]]
+      } 
+      {
+        :label "Über das Szenario" 
+        :set "set_InScenarioVersion" 
+        :description "Die Version von IRPact, für welche das Szenario erstellt wurde." 
+        :tags [["InScenarioVersion" "placeholder"]]
+      } 
+      {
+        :label "Weitere Informationen" 
+        :set "set_InInformation" 
+        :description "Weitere Informationen über das Szenario." 
+        :tags [["InInformation" "placeholder"]]
+      }
+    ]
+  } 
+  {
+    :label "Einstellungen" 
+    :description "Einstellungen von IRPact" 
+    :sections [
+      {
+        :label "Allgemeine Einstellungen" 
+        :description "Allgemeine Einstellungen von IRPact" 
+        :tags [["InGeneral" "seed"] ["InGeneral" "timeout"] ["InGeneral" "timeoutUseMs"] ["InGeneral" "timeoutUseSec"] ["InGeneral" "timeoutUseMin"] ["InGeneral" "enableFirstSimulationYear"] ["InGeneral" "firstSimulationYear"] ["InGeneral" "lastSimulationYear"]] 
+        :sections [
+          {
+            :label "Logging" 
+            :description "Einstellungen für das Logging." 
+            :tags [["InGeneral" "levelOff"] ["InGeneral" "levelTrace"] ["InGeneral" "levelDebug"] ["InGeneral" "levelInfo"] ["InGeneral" "levelWarn"] ["InGeneral" "levelError"] ["InGeneral" "levelAll"] ["InGeneral" "logAll"] ["InGeneral" "logAllIRPact"] ["InGeneral" "logAllTools"] ["InGeneral" "logInitialization"] ["InGeneral" "logSimulation"]]
+          }
+        ]
+      } 
+      {
+        :label "Spezielle Einstellungen" 
+        :description "Hier lassen sich spezielle Modi aktivieren." 
+        :tags [["InGeneral" "runPVAct"] ["InGeneral" "runOptActDemo"] ["InGeneral" "runMode"] ["InGeneral" "scenarioMode"] ["InGeneral" "passErrorMessageToOutput"] ["InGeneral" "printStacktraceImage"] ["InGeneral" "printNonErrorImage"] ["InGeneral" "copyLogIfPossible"] ["InGeneral" "skipPersist"] ["InGeneral" "forceLogToConsole"] ["InGeneral" "debugTask"] ["InGeneral" "outerParallelism"] ["InGeneral" "innerParallelism"] ["InGeneral" "logAdoptionAnalysis"] ["InGeneral" "logResultAdoptionsAll"] ["InGeneral" "logPerformance"]] 
+        :sections [
+          {
+            :label "Binäre Daten" 
+            :set "set_VisibleBinaryData" 
+            :tags [["VisibleBinaryData" "idVisible"]]
+          }
+        ]
+      } 
+      {
+        :label "Datenanalyse" 
+        :description "todo" 
+        :sections [
+          {
+            :label "BucketAnalyser" 
+            :set "set_InBucketAnalyser" 
+            :description "todo" 
+            :tags [["InBucketAnalyser" "enabled"] ["InBucketAnalyser" "storeCsv"] ["InBucketAnalyser" "storeXlsx"] ["InBucketAnalyser" "bucketRange"] ["link" "InBucketAnalyser" "InConsumerAgentCalculationLoggingModule2" "loggingModule"]]
+          } 
+          {
+            :label "Nachbarschaftsübersicht" 
+            :set "set_InNeighbourhoodOverview" 
+            :description "Gibt eine Tabelle aller Agenten und ihrer räumlichen Nachbarn aus. Diese Übersicht kann genutzt werden, um einen Überblick über die räumliche Verteilung der Agenten zu erhalten. Achtung: Diese Analyse kann zu großen Dateien führen!" 
+            :tags [["InNeighbourhoodOverview" "enabled"] ["InNeighbourhoodOverview" "storeCsv"] ["InNeighbourhoodOverview" "storeXlsx"] ["link" "InNeighbourhoodOverview" "InNodeDistanceFilterScheme" "nodeFilterScheme"]]
+          }
+        ]
+      } 
+      {
+        :label "Ergebnisvisualisierung" 
+        :description "todo" 
+        :sections [
+          {
+            :label "Benutzerdefinierte Quantilanalyse" 
+            :set "set_InCustomAverageQuantilRangeImage" 
+            :description "todo" 
+            :tags [["InCustomAverageQuantilRangeImage" "enabled"] ["InCustomAverageQuantilRangeImage" "useGnuplot"] ["InCustomAverageQuantilRangeImage" "useR"] ["InCustomAverageQuantilRangeImage" "storeScript"] ["InCustomAverageQuantilRangeImage" "storeData"] ["InCustomAverageQuantilRangeImage" "storeImage"] ["InCustomAverageQuantilRangeImage" "printAverage"] ["InCustomAverageQuantilRangeImage" "imageWidth"] ["InCustomAverageQuantilRangeImage" "imageHeight"] ["InCustomAverageQuantilRangeImage" "linewidth"] ["InCustomAverageQuantilRangeImage" "customImageId"] ["link" "InCustomAverageQuantilRangeImage" "InColorPalette" "colorPalette"] ["link" "InCustomAverageQuantilRangeImage" "InQuantileRange" "ranges"] ["link" "InCustomAverageQuantilRangeImage" "InConsumerAgentCalculationLoggingModule2" "loggingModules"]] 
+            :sections [
+              {
+                :label "Quantilbereich" 
+                :set "set_InQuantileRange" 
+                :description "todo" 
+                :tags [["InQuantileRange" "lowerBound"] ["InQuantileRange" "upperBound"]]
+              }
+            ]
+          } 
+          {
+            :label "Spezielle Quantilbereiche" 
+            :set "set_InSpecialAverageQuantilRangeImage" 
+            :description "todo" 
+            :tags [["InSpecialAverageQuantilRangeImage" "enabled"] ["InSpecialAverageQuantilRangeImage" "useGnuplot"] ["InSpecialAverageQuantilRangeImage" "useR"] ["InSpecialAverageQuantilRangeImage" "storeScript"] ["InSpecialAverageQuantilRangeImage" "storeData"] ["InSpecialAverageQuantilRangeImage" "storeImage"] ["InSpecialAverageQuantilRangeImage" "printAverage"] ["InSpecialAverageQuantilRangeImage" "imageWidth"] ["InSpecialAverageQuantilRangeImage" "imageHeight"] ["InSpecialAverageQuantilRangeImage" "linewidth"] ["InSpecialAverageQuantilRangeImage" "customImageId"] ["link" "InSpecialAverageQuantilRangeImage" "InColorPalette" "colorPalette"] ["link" "InSpecialAverageQuantilRangeImage" "InConsumerAgentCalculationLoggingModule2" "loggingModules"]]
+          } 
+          {
+            :label "Adoptionen mit Realdaten" 
+            :set "set_InComparedAnnualImage" 
+            :description "todo" 
+            :tags [["InComparedAnnualImage" "enabled"] ["InComparedAnnualImage" "useGnuplot"] ["InComparedAnnualImage" "useR"] ["InComparedAnnualImage" "storeScript"] ["InComparedAnnualImage" "storeData"] ["InComparedAnnualImage" "storeImage"] ["InComparedAnnualImage" "imageWidth"] ["InComparedAnnualImage" "imageHeight"] ["InComparedAnnualImage" "linewidth"] ["InComparedAnnualImage" "skipInvalidZips"] ["InComparedAnnualImage" "showPreYear"] ["InComparedAnnualImage" "startAtMinValue"] ["InComparedAnnualImage" "autoTickY"] ["InComparedAnnualImage" "customImageId"] ["link" "InComparedAnnualImage" "InColorPalette" "colorPalette"] ["link" "InComparedAnnualImage" "InRealAdoptionDataFile" "realData"]]
+          } 
+          {
+            :label "PLZ-basierte Adoptionen mit Realdaten" 
+            :set "set_InComparedAnnualZipImage" 
+            :description "todo" 
+            :tags [["InComparedAnnualZipImage" "enabled"] ["InComparedAnnualZipImage" "useGnuplot"] ["InComparedAnnualZipImage" "useR"] ["InComparedAnnualZipImage" "storeScript"] ["InComparedAnnualZipImage" "storeData"] ["InComparedAnnualZipImage" "storeImage"] ["InComparedAnnualZipImage" "imageWidth"] ["InComparedAnnualZipImage" "imageHeight"] ["InComparedAnnualZipImage" "linewidth"] ["InComparedAnnualZipImage" "skipInvalidZips"] ["InComparedAnnualZipImage" "showPreYear"] ["InComparedAnnualZipImage" "startAtMinValue"] ["InComparedAnnualZipImage" "autoTickY"] ["InComparedAnnualZipImage" "customImageId"] ["link" "InComparedAnnualZipImage" "InColorPalette" "colorPalette"] ["link" "InComparedAnnualZipImage" "InRealAdoptionDataFile" "realData"]]
+          } 
+          {
+            :label "Kumulierte Adoptionen mit Realdaten" 
+            :set "set_InComparedCumulatedAnnualImage" 
+            :description "todo" 
+            :tags [["InComparedCumulatedAnnualImage" "enabled"] ["InComparedCumulatedAnnualImage" "useGnuplot"] ["InComparedCumulatedAnnualImage" "useR"] ["InComparedCumulatedAnnualImage" "storeScript"] ["InComparedCumulatedAnnualImage" "storeData"] ["InComparedCumulatedAnnualImage" "storeImage"] ["InComparedCumulatedAnnualImage" "imageWidth"] ["InComparedCumulatedAnnualImage" "imageHeight"] ["InComparedCumulatedAnnualImage" "linewidth"] ["InComparedCumulatedAnnualImage" "skipInvalidZips"] ["InComparedCumulatedAnnualImage" "showPreYear"] ["InComparedCumulatedAnnualImage" "startAtMinValue"] ["InComparedCumulatedAnnualImage" "autoTickY"] ["InComparedCumulatedAnnualImage" "customImageId"] ["link" "InComparedCumulatedAnnualImage" "InColorPalette" "colorPalette"] ["link" "InComparedCumulatedAnnualImage" "InRealAdoptionDataFile" "realData"]]
+          } 
+          {
+            :label "PLZ-basierte kumulierte Adoptionen mit Realdaten" 
+            :set "set_InComparedCumulatedAnnualZipImage" 
+            :description "todo" 
+            :tags [["InComparedCumulatedAnnualZipImage" "enabled"] ["InComparedCumulatedAnnualZipImage" "useGnuplot"] ["InComparedCumulatedAnnualZipImage" "useR"] ["InComparedCumulatedAnnualZipImage" "storeScript"] ["InComparedCumulatedAnnualZipImage" "storeData"] ["InComparedCumulatedAnnualZipImage" "storeImage"] ["InComparedCumulatedAnnualZipImage" "imageWidth"] ["InComparedCumulatedAnnualZipImage" "imageHeight"] ["InComparedCumulatedAnnualZipImage" "linewidth"] ["InComparedCumulatedAnnualZipImage" "skipInvalidZips"] ["InComparedCumulatedAnnualZipImage" "showPreYear"] ["InComparedCumulatedAnnualZipImage" "startAtMinValue"] ["InComparedCumulatedAnnualZipImage" "autoTickY"] ["InComparedCumulatedAnnualZipImage" "customImageId"] ["link" "InComparedCumulatedAnnualZipImage" "InColorPalette" "colorPalette"] ["link" "InComparedCumulatedAnnualZipImage" "InRealAdoptionDataFile" "realData"]]
+          } 
+          {
+            :label "Adoptionsphasenübersicht" 
+            :set "set_InAdoptionPhaseOverviewImage" 
+            :description "todo" 
+            :tags [["InAdoptionPhaseOverviewImage" "enabled"] ["InAdoptionPhaseOverviewImage" "useGnuplot"] ["InAdoptionPhaseOverviewImage" "useR"] ["InAdoptionPhaseOverviewImage" "storeScript"] ["InAdoptionPhaseOverviewImage" "storeData"] ["InAdoptionPhaseOverviewImage" "storeImage"] ["InAdoptionPhaseOverviewImage" "imageWidth"] ["InAdoptionPhaseOverviewImage" "imageHeight"] ["InAdoptionPhaseOverviewImage" "boxWidth"] ["InAdoptionPhaseOverviewImage" "customImageId"] ["link" "InAdoptionPhaseOverviewImage" "InColorPalette" "colorPalette"]]
+          } 
+          {
+            :label "Prozessphasenübersicht" 
+            :set "set_InProcessPhaseOverviewImage" 
+            :description "todo" 
+            :tags [["InProcessPhaseOverviewImage" "enabled"] ["InProcessPhaseOverviewImage" "useGnuplot"] ["InProcessPhaseOverviewImage" "useR"] ["InProcessPhaseOverviewImage" "storeScript"] ["InProcessPhaseOverviewImage" "storeData"] ["InProcessPhaseOverviewImage" "storeImage"] ["InProcessPhaseOverviewImage" "imageWidth"] ["InProcessPhaseOverviewImage" "imageHeight"] ["InProcessPhaseOverviewImage" "boxWidth"] ["InProcessPhaseOverviewImage" "customImageId"] ["link" "InProcessPhaseOverviewImage" "InColorPalette" "colorPalette"]]
+          } 
+          {
+            :label "Interessensübersicht" 
+            :set "set_InInterestOverviewImage" 
+            :description "todo" 
+            :tags [["InInterestOverviewImage" "enabled"] ["InInterestOverviewImage" "useGnuplot"] ["InInterestOverviewImage" "useR"] ["InInterestOverviewImage" "storeScript"] ["InInterestOverviewImage" "storeData"] ["InInterestOverviewImage" "storeImage"] ["InInterestOverviewImage" "imageWidth"] ["InInterestOverviewImage" "imageHeight"] ["InInterestOverviewImage" "boxWidth"] ["InInterestOverviewImage" "customImageId"] ["link" "InInterestOverviewImage" "InColorPalette" "colorPalette"]]
+          } 
+          {
+            :label "Jährliche Bereichsanalyse" 
+            :set "set_InAnnualBucketImage" 
+            :description "todo" 
+            :tags [["InAnnualBucketImage" "enabled"] ["InAnnualBucketImage" "useGnuplot"] ["InAnnualBucketImage" "useR"] ["InAnnualBucketImage" "storeScript"] ["InAnnualBucketImage" "storeData"] ["InAnnualBucketImage" "storeImage"] ["InAnnualBucketImage" "imageWidth"] ["InAnnualBucketImage" "imageHeight"] ["InAnnualBucketImage" "boxWidth"] ["InAnnualBucketImage" "useCustomYRange"] ["InAnnualBucketImage" "minY"] ["InAnnualBucketImage" "maxY"] ["InAnnualBucketImage" "bucketSize"] ["InAnnualBucketImage" "fractionDigits"] ["InAnnualBucketImage" "customImageId"] ["link" "InAnnualBucketImage" "InColorPalette" "colorPalette"] ["link" "InAnnualBucketImage" "InConsumerAgentCalculationLoggingModule2" "loggingModule"]]
+          } 
+          {
+            :label "Jährliche Adoptionen nach Milieu" 
+            :set "set_InAnnualMilieuImage" 
+            :description "todo" 
+            :tags [["InAnnualMilieuImage" "enabled"] ["InAnnualMilieuImage" "useGnuplot"] ["InAnnualMilieuImage" "useR"] ["InAnnualMilieuImage" "storeScript"] ["InAnnualMilieuImage" "storeData"] ["InAnnualMilieuImage" "storeImage"] ["InAnnualMilieuImage" "imageWidth"] ["InAnnualMilieuImage" "imageHeight"] ["InAnnualMilieuImage" "boxWidth"] ["InAnnualMilieuImage" "showInitial"] ["InAnnualMilieuImage" "useCustomYRange"] ["InAnnualMilieuImage" "minY"] ["InAnnualMilieuImage" "maxY"] ["InAnnualMilieuImage" "customImageId"] ["link" "InAnnualMilieuImage" "InColorPalette" "colorPalette"]]
+          } 
+          {
+            :label "Jährliche Analyse interessierter Agenten" 
+            :set "set_InAnnualInterestImage" 
+            :description "todo" 
+            :tags [["InAnnualInterestImage" "enabled"] ["InAnnualInterestImage" "useGnuplot"] ["InAnnualInterestImage" "useR"] ["InAnnualInterestImage" "storeScript"] ["InAnnualInterestImage" "storeData"] ["InAnnualInterestImage" "storeImage"] ["InAnnualInterestImage" "imageWidth"] ["InAnnualInterestImage" "imageHeight"] ["InAnnualInterestImage" "linewidth"] ["InAnnualInterestImage" "useCustomYRangeMin"] ["InAnnualInterestImage" "minY"] ["InAnnualInterestImage" "useCustomYRangeMax"] ["InAnnualInterestImage" "maxY"] ["InAnnualInterestImage" "customImageId"] ["link" "InAnnualInterestImage" "InColorPalette" "colorPalette"]]
+          } 
+          {
+            :label "Kumulierte jährliche Analyse interessierter Agenten" 
+            :set "set_InCumulatedAnnualInterestImage" 
+            :description "todo" 
+            :tags [["InCumulatedAnnualInterestImage" "enabled"] ["InCumulatedAnnualInterestImage" "useGnuplot"] ["InCumulatedAnnualInterestImage" "useR"] ["InCumulatedAnnualInterestImage" "storeScript"] ["InCumulatedAnnualInterestImage" "storeData"] ["InCumulatedAnnualInterestImage" "storeImage"] ["InCumulatedAnnualInterestImage" "imageWidth"] ["InCumulatedAnnualInterestImage" "imageHeight"] ["InCumulatedAnnualInterestImage" "linewidth"] ["InCumulatedAnnualInterestImage" "useCustomYRangeMin"] ["InCumulatedAnnualInterestImage" "minY"] ["InCumulatedAnnualInterestImage" "useCustomYRangeMax"] ["InCumulatedAnnualInterestImage" "maxY"] ["InCumulatedAnnualInterestImage" "customImageId"] ["link" "InCumulatedAnnualInterestImage" "InColorPalette" "colorPalette"]]
+          }
+        ]
+      } 
+      {
+        :label "Netzwerkvisualisierung" 
+        :description "Hier kann die Netzwerkvisualisierung konfiguriert werden." 
+        :sections [
+          {
+            :label "Einstellungen" 
+            :description "Ermöglicht die allgemeine Konfiguration von Graphviz für die Netzwerkvisualisierung." 
+            :tags [["InGraphvizGeneral" "storeEndImage"] ["InGraphvizGeneral" "storeDotFile"] ["InGraphvizGeneral" "preferredImageWidth"] ["InGraphvizGeneral" "preferredImageHeight"] ["InGraphvizGeneral" "positionBasedLayout"] ["InGraphvizGeneral" "freeLayout"] ["InGraphvizGeneral" "keepAspectRatio"] ["InGraphvizGeneral" "useDefaultPositionIfMissing"]]
+          } 
+          {
+            :label "Agentengruppe-Farben-Mapping" 
+            :set "set_InConsumerAgentGroupColor" 
+            :description "Agentengruppe, welche im Graphen dargestellt werden sollen." 
+            :tags [["InConsumerAgentGroupColor" "rgba"] ["link" "InConsumerAgentGroupColor" "InConsumerAgentGroup" "groups"]]
+          }
+        ]
+      } 
+      {
+        :label "Farbeinstellungen" 
+        :description "Definiert Farben und legt Farbpaletten fest." 
+        :sections [
+          {
+            :label "Farbpalette" 
+            :set "set_InColorPalette" 
+            :description "Hier können Farbpaletten definiert werden, welche in Abbildungen verwendet werden können." 
+            :tags [["link" "InColorPalette" "InColor" "colors"]]
+          } 
+          {
+            :label "Farbe (RGB)" 
+            :set "set_InColorARGB" 
+            :description "Hier können RGB Farben mit einem Alphawert definiert werden. Die Werte müssen dabei zwischen 0 und 255 liegen." 
+            :tags [["InColorARGB" "priority"] ["InColorARGB" "alpha"] ["InColorARGB" "red"] ["InColorARGB" "green"] ["InColorARGB" "blue"]]
+          }
+        ]
+      }
+    ]
+  } 
+  {
+    :label "Spezielle Eingabedaten" 
+    :description "Hier können spezielle Eingabendaten konfiguriert werden." 
+    :sections [
+      {
+        :label "Für PVact" 
+        :description "Hier können für PVact spezielle Eingabendaten konfiguriert werden." 
+        :sections [
+          {
+            :label "Jährliche Konstruktionsraten" 
+            :description "Stellt die jährlichen Konstruktionsraten für die Jahre von 2008 bis 2020 ein." 
+            :tags [["InSpecialPVactInput" "useConstRates"] ["InSpecialPVactInput" "const2008"] ["InSpecialPVactInput" "const2009"] ["InSpecialPVactInput" "const2010"] ["InSpecialPVactInput" "const2011"] ["InSpecialPVactInput" "const2012"] ["InSpecialPVactInput" "const2013"] ["InSpecialPVactInput" "const2014"] ["InSpecialPVactInput" "const2015"] ["InSpecialPVactInput" "const2016"] ["InSpecialPVactInput" "const2017"] ["InSpecialPVactInput" "const2018"] ["InSpecialPVactInput" "const2019"] ["InSpecialPVactInput" "const2020"] ["InSpecialPVactInput" "const2021"] ["InSpecialPVactInput" "const2022"] ["InSpecialPVactInput" "const2023"] ["InSpecialPVactInput" "const2024"] ["InSpecialPVactInput" "const2025"] ["InSpecialPVactInput" "const2026"] ["InSpecialPVactInput" "const2027"] ["InSpecialPVactInput" "const2028"] ["InSpecialPVactInput" "const2029"] ["InSpecialPVactInput" "const2030"] ["InSpecialPVactInput" "const2031"] ["InSpecialPVactInput" "const2032"] ["InSpecialPVactInput" "const2033"] ["InSpecialPVactInput" "const2034"] ["InSpecialPVactInput" "const2035"] ["InSpecialPVactInput" "const2036"] ["InSpecialPVactInput" "const2037"] ["InSpecialPVactInput" "const2038"] ["InSpecialPVactInput" "const2039"] ["InSpecialPVactInput" "const2040"]]
+          } 
+          {
+            :label "Jährliche Renovierungsraten" 
+            :description "Stellt die jährlichen Renovierungsraten für die Jahre von 2008 bis 2020 ein." 
+            :tags [["InSpecialPVactInput" "useRenoRates"] ["InSpecialPVactInput" "reno2008"] ["InSpecialPVactInput" "reno2009"] ["InSpecialPVactInput" "reno2010"] ["InSpecialPVactInput" "reno2011"] ["InSpecialPVactInput" "reno2012"] ["InSpecialPVactInput" "reno2013"] ["InSpecialPVactInput" "reno2014"] ["InSpecialPVactInput" "reno2015"] ["InSpecialPVactInput" "reno2016"] ["InSpecialPVactInput" "reno2017"] ["InSpecialPVactInput" "reno2018"] ["InSpecialPVactInput" "reno2019"] ["InSpecialPVactInput" "reno2020"] ["InSpecialPVactInput" "reno2021"] ["InSpecialPVactInput" "reno2022"] ["InSpecialPVactInput" "reno2023"] ["InSpecialPVactInput" "reno2024"] ["InSpecialPVactInput" "reno2025"] ["InSpecialPVactInput" "reno2026"] ["InSpecialPVactInput" "reno2027"] ["InSpecialPVactInput" "reno2028"] ["InSpecialPVactInput" "reno2029"] ["InSpecialPVactInput" "reno2030"] ["InSpecialPVactInput" "reno2031"] ["InSpecialPVactInput" "reno2032"] ["InSpecialPVactInput" "reno2033"] ["InSpecialPVactInput" "reno2034"] ["InSpecialPVactInput" "reno2035"] ["InSpecialPVactInput" "reno2036"] ["InSpecialPVactInput" "reno2037"] ["InSpecialPVactInput" "reno2038"] ["InSpecialPVactInput" "reno2039"] ["InSpecialPVactInput" "reno2040"]]
+          }
+        ]
+      }
+    ]
+  } 
+  {
+    :label "Namen" 
+    :set "set_InAttributeName" 
+    :description "Ermöglicht die Definition von Namen. Namen können für verschiedene Optionen genutzt werden, wie zum Beispiel die Bestimmung von Tabellenspalten oder als gemeinsame Basis von Eigenschaften (Attribute). (Anmerkung: Namen dienen als Ersatz für textbasierte Parameter.)" 
+    :tags [["InAttributeName" "placeholder"]]
+  } 
+  {
+    :label "Dateien" 
+    :description "Ermöglicht die Festlegung von Eingabedateien." 
+    :sections [
+      {
+        :label "PV Dateien" 
+        :set "set_InPVFile" 
+        :description "Daten im PV-Datenformat, welche in einer .xlsx sein müssen." 
+        :tags [["InPVFile" "placeholderPVFile"]]
+      } 
+      {
+        :label "Reale Adoptionsdaten" 
+        :set "set_InRealAdoptionDataFile" 
+        :description "Adoptionsdaten in tabellarischer Form, welche in einer .xlsx sein müssen. Zusätzlich wird das Tabelleblatt 'LaufendeSumme' benötigt." 
+        :tags [["InRealAdoptionDataFile" "placeholder"]]
+      } 
+      {
+        :label "Tabellarische Dateien" 
+        :set "set_InSpatialTableFile" 
+        :description "Daten in tabellarischer Form. Es werden .xlsx und .csv unterstützt." 
+        :tags [["InSpatialTableFile" "coverage"]]
+      }
+    ]
+  } 
+  {
+    :label "Verteilungsfunktionen" 
+    :description "Ermöglicht die Erstellung verschiedenster Verteilungsfunktionen." 
+    :sections [
+      {
+        :label "Bernoulliverteilung" 
+        :set "set_InBernoulliDistribution" 
+        :description "Auf Bernoulli basierende Verteilungsfunktion, welche mit Wahrscheinlichkeit p x oder (1-p) y zurück gibt." 
+        :tags [["InBernoulliDistribution" "p"] ["InBernoulliDistribution" "trueValue"] ["InBernoulliDistribution" "falseValue"]]
+      } 
+      {
+        :label "Boolean" 
+        :set "set_InBooleanDistribution" 
+        :description "Verteilungsfunktion, welche x oder y zurück gibt. Der Wahrscheinlichkeit ist dabei gleichverteilt. Diese Funktion entspricht einer Bernoulliverteilung mit p = 0,5." 
+        :tags [["InBooleanDistribution" "trueValue"] ["InBooleanDistribution" "falseValue"]]
+      } 
+      {
+        :label "Dirac-Verteilung" 
+        :set "set_InDiracUnivariateDistribution" 
+        :description "Verteilungsfunktion, welche einen konstanten Wert zurück gibt." 
+        :tags [["InDiracUnivariateDistribution" "value"]]
+      } 
+      {
+        :label "Gewichtete Massepunkte" 
+        :set "set_InFiniteMassPointsDiscreteDistribution" 
+        :description "Verteilungsfunktion, welche auf Massepunkten basiert." 
+        :tags [["link" "InFiniteMassPointsDiscreteDistribution" "InMassPoint" "massPoints"]] 
+        :sections [
+          {
+            :label "Massepunkt" 
+            :set "set_InMassPoint" 
+            :description "Massepunkt mit Wert und Gewicht" 
+            :tags [["InMassPoint" "mpValue"] ["InMassPoint" "mpWeight"]]
+          }
+        ]
+      } 
+      {
+        :label "Normalverteilung" 
+        :set "set_InNormalDistribution" 
+        :description "Verteilungsfunktion auf Basis der Normalverteilung." 
+        :tags [["InNormalDistribution" "standardDeviation"] ["InNormalDistribution" "mean"] ["InNormalDistribution" "modeNoRounding"] ["InNormalDistribution" "modeFloor"] ["InNormalDistribution" "modeCeil"] ["InNormalDistribution" "modeRound"]]
+      } 
+      {
+        :label "Beschränkte Normalverteilung" 
+        :set "set_InBoundedNormalDistribution" 
+        :description "Verteilungsfunktion, welche auf der Normalverteilung basiert und nach oben und unten beschränkt ist. " 
+        :tags [["InBoundedNormalDistribution" "standardDeviation"] ["InBoundedNormalDistribution" "mean"] ["InBoundedNormalDistribution" "lowerBound"] ["InBoundedNormalDistribution" "upperBound"]]
+      } 
+      {
+        :label "(TEST) Langsame abgeschnittene Normalverteilung" 
+        :set "set_InSlowTruncatedNormalDistribution" 
+        :description "(TESTIMPLEMENTIERUNG) Diese Variante zieht so lange Werte, bis sie im gültigen Bereich liegen." 
+        :tags [["InSlowTruncatedNormalDistribution" "standardDeviation"] ["InSlowTruncatedNormalDistribution" "mean"] ["InSlowTruncatedNormalDistribution" "lowerBound"] ["InSlowTruncatedNormalDistribution" "lowerBoundInclusive"] ["InSlowTruncatedNormalDistribution" "upperBound"] ["InSlowTruncatedNormalDistribution" "upperBoundInclusive"] ["InSlowTruncatedNormalDistribution" "modeNoRounding"] ["InSlowTruncatedNormalDistribution" "modeFloor"] ["InSlowTruncatedNormalDistribution" "modeCeil"] ["InSlowTruncatedNormalDistribution" "modeRound"]]
+      } 
+      {
+        :label "Abgeschnittene Normalverteilung" 
+        :set "set_InTruncatedNormalDistribution" 
+        :description "Verteilungsfunktion auf Basis der abgeschnittenen Normalverteilung (truncated normal distribution). Zusätzlich werden verschiedene Rundungsstrategien unterstützt." 
+        :tags [["InTruncatedNormalDistribution" "standardDeviation"] ["InTruncatedNormalDistribution" "mean"] ["InTruncatedNormalDistribution" "lowerBound"] ["InTruncatedNormalDistribution" "upperBound"] ["InTruncatedNormalDistribution" "modeNoRounding"] ["InTruncatedNormalDistribution" "modeFloor"] ["InTruncatedNormalDistribution" "modeCeil"] ["InTruncatedNormalDistribution" "modeRound"]]
+      }
+    ]
+  } 
+  {
+    :label "Agenten" 
+    :description "Ermöglicht die Erstellung unterschiedlicher Akteure in IRPact." 
+    :sections [
+      {
+        :label "Konsumer" 
+        :description "Ermöglicht die Erstellung von Konsumern." 
+        :sections [
+          {
+            :label "Gruppen" 
+            :description "Definiert Konsumergruppen" 
+            :sections [
+              {
+                :label "Allgemeine Gruppen" 
+                :set "set_InGeneralConsumerAgentGroup" 
+                :description "Erstellt eine allgemeine Konsumergruppe." 
+                :tags [["link" "InGeneralConsumerAgentGroup" "InDependentConsumerAgentGroupAttribute" "cagAttributes"] ["link" "InGeneralConsumerAgentGroup" "InProductInterestSupplyScheme" "cagInterest"] ["link" "InGeneralConsumerAgentGroup" "InProductFindingScheme" "productFindingSchemes"] ["link" "InGeneralConsumerAgentGroup" "InSpatialDistribution" "spatialDistribution"]]
+              } 
+              {
+                :label "PVact Gruppen" 
+                :set "set_InPVactConsumerAgentGroup" 
+                :description "Erstellt eine spezielle Konsumergruppe für PVact. Diese sind durch ihre fest vorgegebenen Attribute gekennzeichnet." 
+                :tags [["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "noveltySeeking"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "dependentJudgmentMaking"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "environmentalConcern"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "interestThreshold"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "financialThreshold"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "adoptionThreshold"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "communication"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "rewire"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "initialAdopter"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "rateOfConvergence"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "initialProductInterest"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "initialProductAwareness"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "constructionRate"] ["link" "InPVactConsumerAgentGroup" "InUnivariateDoubleDistribution" "renovationRate"] ["link" "InPVactConsumerAgentGroup" "InSpatialDistribution" "spatialDistribution"]]
+              }
+            ]
+          } 
+          {
+            :label "Attribute" 
+            :description "Definiert die Attribute von Agenten." 
+            :sections [
+              {
+                :label "Allgemeine Attribute" 
+                :set "set_InGeneralConsumerAgentGroupAttribute" 
+                :description "Definiert allgemeine Attribute" 
+                :tags [["link" "InGeneralConsumerAgentGroupAttribute" "InAttributeName" "attrName"] ["link" "InGeneralConsumerAgentGroupAttribute" "InUnivariateDoubleDistribution" "dist"]]
+              } 
+              {
+                :label "Jahresabhängiges Attribut" 
+                :set "set_InGeneralConsumerAgentAnnualGroupAttribute" 
+                :description "Der Wert (bzw. Verteilungsfunktion) dieser Attribute lässt sich für die jeweiligen Simulationsjahre individuell definieren." 
+                :tags [["link" "InGeneralConsumerAgentAnnualGroupAttribute" "InAttributeName" "attributeName"] ["link" "InGeneralConsumerAgentAnnualGroupAttribute" "InUnivariateDoubleDistribution" "distribution"]]
+              } 
+              {
+                :label "Namensbasierte Attribute" 
+                :set "set_InNameSplitConsumerAgentGroupAttribute" 
+                :description "Dieses Attribut wird über seinen Namen definiert." 
+                :tags [["link" "InNameSplitConsumerAgentGroupAttribute" "InUnivariateDoubleDistribution" "dist"]]
+              }
+            ]
+          } 
+          {
+            :label "Affinitäten" 
+            :description "Legt die Affinity zwischen den jeweiligen Konsumergruppen fest." 
+            :sections [
+              {
+                :label "Affinitätenmenge" 
+                :set "set_InAffinities" 
+                :description "Legt die Affinity zwischen den jeweiligen Konsumergruppen fest." 
+                :tags [["link" "InAffinities" "InAffinityEntry" "entries"]]
+              } 
+              {
+                :label "Affinitätseintrag" 
+                :set "set_InComplexAffinityEntry" 
+                :description "Erstellt einen einfachen Affinitätseintag zwischen einer Ausgangs- und einer Zielgruppe." 
+                :tags [["link" "InComplexAffinityEntry" "InConsumerAgentGroup" "srcCag"] ["link" "InComplexAffinityEntry" "InConsumerAgentGroup" "tarCag"] ["InComplexAffinityEntry" "affinityValue"]]
+              } 
+              {
+                :label "Namensbasierter Affinitätseintrag" 
+                :set "set_InNameSplitAffinityEntry" 
+                :description "Dieser Variante ist eine Alternative zum normalen Affinitätseintrag. Hier werden die Ausgangs- und die Zielgruppe direkt aus dem Namen des Eintrages ermittelt. Es muss somt darauf geachtet werden, dass der Name korrekt definiert wird. Beispiel: Ausgangsgruppe 'A' und Zielgruppe 'B', dann muss der Affinitätseintrag 'A_B' heißen." 
+                :tags [["InNameSplitAffinityEntry" "affinityValue"]]
+              }
+            ]
+          } 
+          {
+            :label "Produktinteresse" 
+            :description "Legt die verwendeten Interessens-Varianten für die Konsumergruppen fest." 
+            :sections [
+              {
+                :label "Grenzwertbasiert" 
+                :set "set_InProductThresholdInterestSupplyScheme" 
+                :description "Grenzwertbasierte Interessens-Varianten" 
+                :tags [["link" "InProductThresholdInterestSupplyScheme" "InProductGroupThresholdEntry" "entries"]] 
+                :sections [
+                  {
+                    :label "Grenzwertbasierte Einträge" 
+                    :set "set_InProductGroupThresholdEntry" 
+                    :description "Ermöglicht die Definition von Einträgen für ein grenzwertbasiertes Interesse." 
+                    :tags [["link" "InProductGroupThresholdEntry" "InUnivariateDoubleDistribution" "interestDistribution"] ["link" "InProductGroupThresholdEntry" "InProductGroup" "productGroups"]]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      } 
+      {
+        :label "Population" 
+        :description "Legt die Agentenpopulation fest." 
+        :sections [
+          {
+            :label "Feste Konsumergruppengröße" 
+            :set "set_InFixConsumerAgentPopulation" 
+            :description "Erstellt eine Population mit festen Größen für die einzelnen Agentengruppen." 
+            :tags [["InFixConsumerAgentPopulation" "size"] ["link" "InFixConsumerAgentPopulation" "InConsumerAgentGroup" "cags"]]
+          } 
+          {
+            :label "Dateibasierte dynamische Konsumergruppengröße" 
+            :set "set_InFileBasedConsumerAgentPopulation" 
+            :description "Erstellt eine Population basierend auf einer Eingabedatei." 
+            :tags [["InFileBasedConsumerAgentPopulation" "desiredSize"] ["InFileBasedConsumerAgentPopulation" "useAll"] ["InFileBasedConsumerAgentPopulation" "requiresDesiredTotalSize"] ["link" "InFileBasedConsumerAgentPopulation" "InConsumerAgentGroup" "cags"] ["link" "InFileBasedConsumerAgentPopulation" "InSpatialTableFile" "file"] ["link" "InFileBasedConsumerAgentPopulation" "InAttributeName" "selectKey"]]
+          } 
+          {
+            :label "Dateibasierte dynamische Konsumergruppengröße für PVact" 
+            :set "set_InFileBasedPVactConsumerAgentPopulation" 
+            :description "Erstellt eine Population basierend auf einer Eingabedatei. Die Agentengruppen werden dabei automatisch mit den Milieus in Relation gesetzt." 
+            :tags [["InFileBasedPVactConsumerAgentPopulation" "desiredSize"] ["InFileBasedPVactConsumerAgentPopulation" "useAll"] ["InFileBasedPVactConsumerAgentPopulation" "requiresDesiredTotalSize"] ["link" "InFileBasedPVactConsumerAgentPopulation" "InConsumerAgentGroup" "cags"] ["link" "InFileBasedPVactConsumerAgentPopulation" "InSpatialTableFile" "file"]]
+          }
+        ]
+      }
+    ]
+  } 
+  {
+    :label "Netzwerk" 
+    :description "Definiert das Netzwerk in IRPact. Aktuell darf nur ein einziges Netzwerk definiert werden." 
+    :sections [
+      {
+        :label "Topologie" 
+        :description "Definiert die Netzwerktopologie in IRPact." 
+        :sections [
+          {
+            :label "Knotenloser Graph" 
+            :set "set_InUnlinkedGraphTopology" 
+            :description "Leere Topologie, welche keine Kanten besitzt." 
+            :tags [["InUnlinkedGraphTopology" "placeholderUnlinked"]]
+          } 
+          {
+            :label "Freie Topologie" 
+            :set "set_InFreeNetworkTopology" 
+            :description "Freie Topologie" 
+            :tags [["InFreeNetworkTopology" "allowLessEdges"] ["link" "InFreeNetworkTopology" "InDistanceEvaluator" "distanceEvaluator"] ["link" "InFreeNetworkTopology" "InNumberOfTies" "numberOfTies"] ["link" "InFreeNetworkTopology" "InAffinities" "affinities"]] 
+            :sections [
+              {
+                :label "Kanten je Konsumergruppe" 
+                :set "set_InNumberOfTies" 
+                :description "Legt die Kantenanzahl je Konsumergruppe fest." 
+                :tags [["InNumberOfTies" "count"] ["link" "InNumberOfTies" "InConsumerAgentGroup" "cags"]]
+              }
+            ]
+          }
+        ]
+      } 
+      {
+        :label "Keine Distanzfunktion" 
+        :set "set_InNoDistance" 
+        :description "Keine Distanzfunktion" 
+        :tags [["InNoDistance" "placeholderNoDistance"]]
+      } 
+      {
+        :label "Inverse Distanz" 
+        :set "set_InInverse" 
+        :description "Benutzt 1/distance für die Auswertung." 
+        :tags [["InInverse" "placeholderInverse"]]
+      }
+    ]
+  } 
+  {
+    :label "Produkte" 
+    :description "Ermöglicht das Einstellen von Produkten und verwandten Optionen." 
+    :sections [
+      {
+        :label "Gruppen" 
+        :description "Ermöglicht die Erstellung von Produktgruppen." 
+        :sections [
+          {
+            :label "Allgemeines Produkt" 
+            :set "set_InBasicProductGroup" 
+            :description "Ermöglicht die Erstellung von allgemeinen Produktgruppen." 
+            :tags [["link" "InBasicProductGroup" "InDependentProductGroupAttribute" "pgAttributes"]]
+          }
+        ]
+      } 
+      {
+        :label "Attribute" 
+        :description "Ermöglicht die Erstellung von Produktgruppenattributen." 
+        :sections [
+          {
+            :label "Allgemeine Attribute" 
+            :set "set_InBasicProductGroupAttribute" 
+            :tags [["link" "InBasicProductGroupAttribute" "InAttributeName" "attrName"] ["link" "InBasicProductGroupAttribute" "InUnivariateDoubleDistribution" "dist"]]
+          } 
+          {
+            :label "Namensbasierte Attribute" 
+            :set "set_InNameSplitProductGroupAttribute" 
+            :description "Dieses Attribut wird über seinen Namen definiert." 
+            :tags [["link" "InNameSplitProductGroupAttribute" "InUnivariateDoubleDistribution" "dist"]]
+          }
+        ]
+      } 
+      {
+        :label "Fixprodukte" 
+        :set "set_InFixProductAttribute" 
+        :description "Ermöglicht es Fixprodukte zu erstellen." 
+        :tags [["link" "InFixProduct" "InProductGroup" "refPG"] ["link" "InFixProduct" "InFixProductAttribute" "fixPAttrs"] ["InFixProductAttribute" "fixPAvalue"] ["link" "InFixProductAttribute" "InProductGroupAttribute" "refPGA"]]
+      } 
+      {
+        :label "Schema für Produktfindung" 
+        :description "Benutzt 1/distance für die Auswertung." 
+        :sections [
+          {
+            :label "Fixproduktschema" 
+            :set "set_InFixProductFindingScheme" 
+            :description "Dieses Schema basiert auf Fixprodukten." 
+            :tags [["link" "InFixProductFindingScheme" "InFixProduct" "refFixProduct"]]
+          }
+        ]
+      } 
+      {
+        :label "Initiale Adopter" 
+        :description "Ermöglicht die Einstellung der initialen Adopter." 
+        :sections [
+          {
+            :label "Attributbasierte initiale Adopter" 
+            :set "set_InPVactAttributeBasedInitialAdoption" 
+            :description "Mittels dieser Variante werden die initialen Adopter anhand des Attributes für initiale Adoptionen der Konsumergruppen festgelegt. Es müssen hier keine weiteren Optionen eingestellt werden." 
+            :tags [["InPVactAttributeBasedInitialAdoption" "priority"]]
+          } 
+          {
+            :label "Initiale Adopter nach realen Daten" 
+            :set "set_InPVactFileBasedConsumerGroupBasedInitialAdoptionWithRealData" 
+            :description "Mittels dieser Variante werden die initialen Adopter anhand von realen Daten bestimmt. Das Attribute für initiale Adoptionen gibt dabei die Verteilung innerhalb der Postleitzahlgebiete an und nicht den Anteil der Agenten selber." 
+            :tags [["InPVactFileBasedConsumerGroupBasedInitialAdoptionWithRealData" "priority"] ["link" "InPVactFileBasedConsumerGroupBasedInitialAdoptionWithRealData" "InRealAdoptionDataFile" "file"]]
+          } 
+          {
+            :label "Gewichtete initiale Adopter nach realen Daten" 
+            :set "set_InPVactFileBasedWeightedConsumerGroupBasedInitialAdoptionWithRealData" 
+            :description "Mittels dieser Variante werden die initialen Adopter anhand von realen Daten bestimmt. Das Attribute für initiale Adoptionen gibt dabei die Verteilung innerhalb der Postleitzahlgebiete an und nicht den Anteil der Agenten selber." 
+            :tags [["InPVactFileBasedWeightedConsumerGroupBasedInitialAdoptionWithRealData" "scale"] ["InPVactFileBasedWeightedConsumerGroupBasedInitialAdoptionWithRealData" "fixError"] ["InPVactFileBasedWeightedConsumerGroupBasedInitialAdoptionWithRealData" "priority"] ["link" "InPVactFileBasedWeightedConsumerGroupBasedInitialAdoptionWithRealData" "InRealAdoptionDataFile" "file"]]
+          } 
+          {
+            :label "Standardinitialisierung von Awareness" 
+            :set "set_InPVactDefaultAwarenessHandler" 
+            :description "todo" 
+            :tags [["InPVactDefaultAwarenessHandler" "priority"]]
+          } 
+          {
+            :label "Standardinitialisierung von Interesse" 
+            :set "set_InPVactDefaultInterestHandler" 
+            :description "todo" 
+            :tags [["InPVactDefaultInterestHandler" "priority"]]
+          } 
+          {
+            :label "Standardinitialisierung von Interesse und Awareness" 
+            :set "set_InPVactDefaultAwarenessInterestHandler" 
+            :description "todo" 
+            :tags [["InPVactDefaultAwarenessInterestHandler" "priority"]]
+          } 
+          {
+            :label "Initialisierung des initialien Interesses in Bezug auf novelty seeking" 
+            :set "set_InPVactDependentInterestScaler" 
+            :description "Initialisiert das initiale Interesse in Bezug auf das sortierte novelty seeking Attribut. Dazu werden auf Basis der Verteilungsfunktion Werte für das initiale Interesse gezogen. Die sortierten Werte werden den, in auf das novelty seeking, sortierten Agenten zugeordnet." 
+            :tags [["InPVactDependentInterestScaler" "priority"] ["link" "InPVactDependentInterestScaler" "InUnivariateDoubleDistribution" "distribution"]]
+          }
+        ]
+      }
+    ]
+  } 
+  {
+    :label "Prozessmodell" 
+    :description "todo" 
+    :sections [
+      {
+        :label "Modulgraph" 
+        :icon "glyphicon glyphicon-globe" 
+        :description "Darstellung des aktuellen Modulgraphs" 
+        :graph {
+          :edges {
+            :tags [["link" "InIfElseActionModule3" "actionnode3" "InConsumerAgentBoolModule2" "testModule"] ["link" "InIfElseActionModule3" "actionnode3" "InConsumerAgentActionModule2" "onTrueModule"] ["link" "InIfElseActionModule3" "actionnode3" "InConsumerAgentActionModule2" "onFalseModule"] ["link" "InThresholdReachedModule3" "boolnode3" "InConsumerAgentCalculationModule2" "drawModule"] ["link" "InThresholdReachedModule3" "boolnode3" "InConsumerAgentCalculationModule2" "thresholdModule"] ["link" "InBernoulliModule3" "boolnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InAddScalarModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InLogisticModule3" "calcnode3" "InConsumerAgentCalculationModule2" "xinputModule"] ["link" "InLogisticModule3" "calcnode3" "InConsumerAgentCalculationModule2" "x0inputModule"] ["link" "InMulScalarModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InProductModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InSumModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InCsvValueLoggingModule3" "calclognode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InConsumerAgentCalculationModule2" "utilityModule"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "utilityLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "localShareLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "socialShareLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "envLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "novLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "npvLogger"] ["link" "InRunUntilFailureModule3" "evalnode3" "InConsumerAgentModule2" "inputModule"] ["link" "InDecisionMakingDeciderModule3" "evalranode3" "InConsumerAgentBoolModule2" "finCheckModule"] ["link" "InDecisionMakingDeciderModule3" "evalranode3" "InConsumerAgentCalculationModule2" "thresholdModule"] ["link" "InDecisionMakingDeciderModule3" "evalranode3" "InConsumerAgentCalculationModule2" "utilityModule"] ["link" "InDoAdoptModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"] ["link" "InFeasibilityModule3" "evalranode3" "InConsumerAgentActionModule2" "inputModule"] ["link" "InInterestModule3" "evalranode3" "InConsumerAgentActionModule2" "inputModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "initModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "awarenessModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "feasibilityModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "decisionModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentActionModule2" "adoptedModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentActionModule2" "impededModule"] ["link" "InPhaseUpdateModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"] ["link" "InYearBasedAdoptionDeciderModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"] ["link" "InReevaluatorModule3" "reevalnode3" "InConsumerAgentModule2" "inputModule"] ["link" "InPhaseLoggingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"]] 
+            :groups [
+              {
+                :tags [["link" "InIfElseActionModule3" "actionnode3" "InConsumerAgentBoolModule2" "testModule"] ["link" "InDecisionMakingDeciderModule3" "evalranode3" "InConsumerAgentBoolModule2" "finCheckModule"]] 
+                :label "Entscheidungskante" 
+                :color "LightSlateGrey"
+              } 
+              {
+                :tags [["link" "InIfElseActionModule3" "actionnode3" "InConsumerAgentActionModule2" "onTrueModule"] ["link" "InIfElseActionModule3" "actionnode3" "InConsumerAgentActionModule2" "onFalseModule"] ["link" "InFeasibilityModule3" "evalranode3" "InConsumerAgentActionModule2" "inputModule"] ["link" "InInterestModule3" "evalranode3" "InConsumerAgentActionModule2" "inputModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentActionModule2" "adoptedModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentActionModule2" "impededModule"]] 
+                :label "Aktionskante" 
+                :color "DarkCyan"
+              } 
+              {
+                :tags [["link" "InThresholdReachedModule3" "boolnode3" "InConsumerAgentCalculationModule2" "drawModule"] ["link" "InThresholdReachedModule3" "boolnode3" "InConsumerAgentCalculationModule2" "thresholdModule"] ["link" "InBernoulliModule3" "boolnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InAddScalarModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InLogisticModule3" "calcnode3" "InConsumerAgentCalculationModule2" "xinputModule"] ["link" "InLogisticModule3" "calcnode3" "InConsumerAgentCalculationModule2" "x0inputModule"] ["link" "InMulScalarModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InProductModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InSumModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InCsvValueLoggingModule3" "calclognode3" "InConsumerAgentCalculationModule2" "inputModule"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InConsumerAgentCalculationModule2" "utilityModule"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "utilityLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "localShareLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "socialShareLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "envLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "novLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "npvLogger"] ["link" "InDecisionMakingDeciderModule3" "evalranode3" "InConsumerAgentCalculationModule2" "thresholdModule"] ["link" "InDecisionMakingDeciderModule3" "evalranode3" "InConsumerAgentCalculationModule2" "utilityModule"]] 
+                :label "Berechnungskante" 
+                :color "Green"
+              } 
+              {
+                :tags [["link" "InRunUntilFailureModule3" "evalnode3" "InConsumerAgentModule2" "inputModule"]] 
+                :label "Systemkante" 
+                :color "Blue"
+              } 
+              {
+                :tags [["link" "InDoAdoptModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "initModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "awarenessModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "feasibilityModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "decisionModule"] ["link" "InPhaseUpdateModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"] ["link" "InYearBasedAdoptionDeciderModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"] ["link" "InPhaseLoggingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"]] 
+                :label "PVact-Kante" 
+                :color "#7012FE"
+              } 
+              {
+                :tags [["link" "InReevaluatorModule3" "reevalnode3" "InConsumerAgentModule2" "inputModule"]] 
+                :label "Reevalluierungskante" 
+                :color "Magenta"
+              }
+            ] 
+            :heading "Kanten"
+          } 
+          :nodes {
+            :set "set_InModule2" 
+            :color {
+              :type :fix 
+              :value "White" 
+              :heading "Farbbedeutung"
+            } 
+            :border {
+              :type :subsets 
+              :groups [
+                {
+                  :tags [["InCommunicationModule3" "actionnode3"] ["InIfElseActionModule3" "actionnode3"] ["InNOPModule3" "actionnode3"] ["InRewireModule3" "actionnode3"]] 
+                  :label "Aktionsmodule" 
+                  :value "DarkCyan"
+                } 
+                {
+                  :tags [["InThresholdReachedModule3" "boolnode3"] ["InBernoulliModule3" "boolnode3"]] 
+                  :label "Entscheidungsmodule" 
+                  :value "LightSlateGrey"
+                } 
+                {
+                  :tags [["InAddScalarModule3" "calcnode3"] ["InLogisticModule3" "calcnode3"] ["InMulScalarModule3" "calcnode3"] ["InProductModule3" "calcnode3"] ["InSumModule3" "calcnode3"]] 
+                  :label "Berechnungsmodule" 
+                  :value "Green"
+                } 
+                {
+                  :tags [["InAnnualAvgAgentAssetNPVModule2" "inputnode3"] ["InAnnualAvgAgentNPVModule2" "inputnode3"] ["InAnnualAvgAssetNPVModule2" "inputnode3"] ["InAnnualAvgExistingAssetNPVModule2" "inputnode3"] ["InAnnualAvgNPVModule2" "inputnode3"] ["InAnnualMaxAgentNPVModule2" "inputnode3"] ["InAnnualMaxAssetNPVModule2" "inputnode3"] ["InAnnualMaxExistingAssetNPVModule2" "inputnode3"] ["InAnnualMinAgentNPVModule2" "inputnode3"] ["InAnnualMinAssetNPVModule2" "inputnode3"] ["InAnnualMinExistingAssetNPVModule2" "inputnode3"] ["InAnnualNormAgentNPVModule" "inputnode3"] ["InAnnualNormAssetNPVModule" "inputnode3"] ["InAnnualNormExistingAssetNPVModule" "inputnode3"] ["InAssetNPVModule3" "inputnode3"] ["InAttributeInputModule3" "inputnode3"] ["InAvgFinModule3" "inputnode3"] ["InGlobalAvgAssetNPVModule3" "inputnode3"] ["InGlobalAvgExistingAssetNPVModule3" "inputnode3"] ["InGlobalAvgNPVModule3" "inputnode3"] ["InGlobalMaxAssetNPVModule3" "inputnode3"] ["InGlobalMaxExistingAssetNPVModule3" "inputnode3"] ["InGlobalMaxAgentNPVModule2" "inputnode3"] ["InGlobalMinAssetNPVModule3" "inputnode3"] ["InGlobalMinExistingAssetNPVModule3" "inputnode3"] ["InGlobalMinAgentNPVModule2" "inputnode3"] ["InGlobalNormAgentNPVModule" "inputnode3"] ["InGlobalNormAssetNPVModule" "inputnode3"] ["InGlobalNormExistingAssetNPVModule" "inputnode3"] ["InLocalShareOfAdopterModule3" "inputnode3"] ["InMagicNPVLogisticModule" "inputnode3"] ["InNaNModule3" "inputnode3"] ["InNPVLogisticModule3" "calcnode3"] ["InNPVModule3" "inputnode3"] ["InSelectNPVModule3" "inputnode3"] ["InSocialShareOfAdopterModule3" "inputnode3"] ["InValueModule3" "inputnode3"]] 
+                  :label "Eingabemodule" 
+                  :value "#CAFE12"
+                } 
+                {
+                  :tags [["InCsvValueLoggingModule3" "calclognode3"] ["InSpecialUtilityCsvValueLoggingModule3" "calcnode3"]] 
+                  :label "Loggingmodule" 
+                  :value "Green"
+                } 
+                {
+                  :tags [["InRunUntilFailureModule3" "evalnode3"]] 
+                  :label "Systemmodule" 
+                  :value "Blue"
+                } 
+                {
+                  :tags [["InDecisionMakingDeciderModule3" "evalranode3"] ["InDoAdoptModule3" "evalranode3"] ["InFeasibilityModule3" "evalranode3"] ["InInitializationModule3" "evalranode3"] ["InInterestModule3" "evalranode3"] ["InMainBranchingModule3" "evalranode3"] ["InPhaseUpdateModule3" "evalranode3"] ["InYearBasedAdoptionDeciderModule3" "evalranode3"] ["InPhaseLoggingModule3" "evalranode3"]] 
+                  :label "PVact-Module" 
+                  :value "#7012FE"
+                } 
+                {
+                  :tags [["InReevaluatorModule3" "reevalnode3"]] 
+                  :label "Reevaluierungsmodule" 
+                  :value "Magenta"
+                }
+              ] 
+              :heading "Kantenbedeutung"
+            } 
+            :shape {
+              :type :subsets 
+              :groups [
+                {
+                  :tags [["InCommunicationModule3" "actionnode3"] ["InIfElseActionModule3" "actionnode3"] ["InNOPModule3" "actionnode3"] ["InRewireModule3" "actionnode3"]] 
+                  :label "Aktionsmodule" 
+                  :value "octagon"
+                } 
+                {
+                  :tags [["InThresholdReachedModule3" "boolnode3"] ["InBernoulliModule3" "boolnode3"]] 
+                  :label "Entscheidungsmodule" 
+                  :value "gear"
+                } 
+                {
+                  :tags [["InAddScalarModule3" "calcnode3"] ["InLogisticModule3" "calcnode3"] ["InMulScalarModule3" "calcnode3"] ["InProductModule3" "calcnode3"] ["InSumModule3" "calcnode3"]] 
+                  :label "Berechnungsmodule" 
+                  :value "square"
+                } 
+                {
+                  :tags [["InAnnualAvgAgentAssetNPVModule2" "inputnode3"] ["InAnnualAvgAgentNPVModule2" "inputnode3"] ["InAnnualAvgAssetNPVModule2" "inputnode3"] ["InAnnualAvgExistingAssetNPVModule2" "inputnode3"] ["InAnnualAvgNPVModule2" "inputnode3"] ["InAnnualMaxAgentNPVModule2" "inputnode3"] ["InAnnualMaxAssetNPVModule2" "inputnode3"] ["InAnnualMaxExistingAssetNPVModule2" "inputnode3"] ["InAnnualMinAgentNPVModule2" "inputnode3"] ["InAnnualMinAssetNPVModule2" "inputnode3"] ["InAnnualMinExistingAssetNPVModule2" "inputnode3"] ["InAnnualNormAgentNPVModule" "inputnode3"] ["InAnnualNormAssetNPVModule" "inputnode3"] ["InAnnualNormExistingAssetNPVModule" "inputnode3"] ["InAssetNPVModule3" "inputnode3"] ["InAttributeInputModule3" "inputnode3"] ["InAvgFinModule3" "inputnode3"] ["InGlobalAvgAssetNPVModule3" "inputnode3"] ["InGlobalAvgExistingAssetNPVModule3" "inputnode3"] ["InGlobalAvgNPVModule3" "inputnode3"] ["InGlobalMaxAssetNPVModule3" "inputnode3"] ["InGlobalMaxExistingAssetNPVModule3" "inputnode3"] ["InGlobalMaxAgentNPVModule2" "inputnode3"] ["InGlobalMinAssetNPVModule3" "inputnode3"] ["InGlobalMinExistingAssetNPVModule3" "inputnode3"] ["InGlobalMinAgentNPVModule2" "inputnode3"] ["InGlobalNormAgentNPVModule" "inputnode3"] ["InGlobalNormAssetNPVModule" "inputnode3"] ["InGlobalNormExistingAssetNPVModule" "inputnode3"] ["InLocalShareOfAdopterModule3" "inputnode3"] ["InMagicNPVLogisticModule" "inputnode3"] ["InNaNModule3" "inputnode3"] ["InNPVLogisticModule3" "calcnode3"] ["InNPVModule3" "inputnode3"] ["InSelectNPVModule3" "inputnode3"] ["InSocialShareOfAdopterModule3" "inputnode3"] ["InValueModule3" "inputnode3"]] 
+                  :label "Eingabemodule" 
+                  :value "flower"
+                } 
+                {
+                  :tags [["InCsvValueLoggingModule3" "calclognode3"] ["InSpecialUtilityCsvValueLoggingModule3" "calcnode3"]] 
+                  :label "Loggingmodule" 
+                  :value "square"
+                } 
+                {
+                  :tags [["InRunUntilFailureModule3" "evalnode3"]] 
+                  :label "Systemmodule" 
+                  :value "pentagon"
+                } 
+                {
+                  :tags [["InDecisionMakingDeciderModule3" "evalranode3"] ["InDoAdoptModule3" "evalranode3"] ["InFeasibilityModule3" "evalranode3"] ["InInitializationModule3" "evalranode3"] ["InInterestModule3" "evalranode3"] ["InMainBranchingModule3" "evalranode3"] ["InPhaseUpdateModule3" "evalranode3"] ["InYearBasedAdoptionDeciderModule3" "evalranode3"] ["InPhaseLoggingModule3" "evalranode3"]] 
+                  :label "PVact-Module" 
+                  :value "circle"
+                } 
+                {
+                  :tags [["InReevaluatorModule3" "reevalnode3"]] 
+                  :label "Reevaluierungsmodule" 
+                  :value "triangle-down"
+                }
+              ] 
+              :heading "Formbedeutungen"
+            }
+          }
+        }
+      } 
+      {
+        :label "Standardprozessmodell" 
+        :set "set_InBasicCAModularProcessModel" 
+        :description "todo" 
+        :tags [["link" "InBasicCAModularProcessModel" "InConsumerAgentEvalModule2" "startModule"] ["link" "InBasicCAModularProcessModel" "InInitializationHandler" "initializationHandlers"] ["link" "InBasicCAModularProcessModel" "InNewProductHandler" "newProductHandlers"] ["link" "InBasicCAModularProcessModel" "InReevaluator2" "initializationReevaluators"] ["link" "InBasicCAModularProcessModel" "InReevaluator2" "startOfYearReevaluators"] ["link" "InBasicCAModularProcessModel" "InReevaluator2" "midOfYearReevaluators"] ["link" "InBasicCAModularProcessModel" "InReevaluator2" "endOfYearReevaluators"]]
+      } 
+      {
+        :label "Einstellungen für Unsicherheit" 
+        :description "todo" 
+        :sections [
+          {
+            :label "Zeitlich aktualisierbare Moderate-Extremisten-Unsicherheit basierend auf allen PVact-Agenten (Option 1)" 
+            :set "set_InPVactUpdatableGlobalModerateExtremistUncertainty" 
+            :description "Diese Variante unterteilt Agenten in Moderate und Extremisten und unterstützt zeitbasierte Aktualisierungen. Die verwendeten Attribute sind NOV und ENV." 
+            :tags [["InPVactUpdatableGlobalModerateExtremistUncertainty" "extremistParameter"] ["InPVactUpdatableGlobalModerateExtremistUncertainty" "extremistUncertainty"] ["InPVactUpdatableGlobalModerateExtremistUncertainty" "moderateUncertainty"] ["InPVactUpdatableGlobalModerateExtremistUncertainty" "lowerBoundInclusive"] ["InPVactUpdatableGlobalModerateExtremistUncertainty" "upperBoundInclusive"]]
+          } 
+          {
+            :label "Individuell aktualisierte Moderate-Extremisten-Unsicherheit basierend auf allen PVact-Agenten (Option 2)" 
+            :set "set_InPVactIndividualGlobalModerateExtremistUncertaintySupplier" 
+            :description "Diese Variante unterteilt Agenten in Moderate und Extremisten. Bei Änderungen passt jeder Agent seine eigene Unsicherheit an. Die verwendeten Attribute sind NOV und ENV." 
+            :tags [["InPVactIndividualGlobalModerateExtremistUncertaintySupplier" "extremistParameter"] ["InPVactIndividualGlobalModerateExtremistUncertaintySupplier" "extremistUncertainty"] ["InPVactIndividualGlobalModerateExtremistUncertaintySupplier" "moderateUncertainty"] ["InPVactIndividualGlobalModerateExtremistUncertaintySupplier" "lowerBoundInclusive"] ["InPVactIndividualGlobalModerateExtremistUncertaintySupplier" "upperBoundInclusive"]]
+          } 
+          {
+            :label "Hochdynamische Moderate-Extremisten-Unsicherheit basierend auf allen PVact-Agenten (Option 3)" 
+            :set "set_InPVactGlobalModerateExtremistUncertaintyWithUpdatableOpinion" 
+            :description "Diese Variante unterteilt Agenten in Moderate und Extremisten. Die Bereiche werden bei jeder Meinungsänderung angepasst. Die verwendeten Attribute sind NOV und ENV." 
+            :tags [["InPVactGlobalModerateExtremistUncertaintyWithUpdatableOpinion" "extremistParameter"] ["InPVactGlobalModerateExtremistUncertaintyWithUpdatableOpinion" "extremistUncertainty"] ["InPVactGlobalModerateExtremistUncertaintyWithUpdatableOpinion" "moderateUncertainty"] ["InPVactGlobalModerateExtremistUncertaintyWithUpdatableOpinion" "lowerBoundInclusive"] ["InPVactGlobalModerateExtremistUncertaintyWithUpdatableOpinion" "upperBoundInclusive"]]
+          }
+        ]
+      } 
+      {
+        :label "Peereffektdistanzeinstellungen" 
+        :description "todo" 
+        :sections [
+          {
+            :label "Kein Peereffekt" 
+            :set "set_InDisabledNodeFilterDistanceScheme" 
+            :description "Deaktiviert den Netzwerkfilter für die sichtbaren PV-Anlagen. Die sichtbare Komponente wird somit deaktiviert." 
+            :tags [["InDisabledNodeFilterDistanceScheme" "placeholder"]]
+          } 
+          {
+            :label "Peereffekt mit ganzen Gebiet" 
+            :set "set_InEntireNetworkNodeFilterDistanceScheme" 
+            :description "Nutzt das gesamte Netzwerk für die sichtbaren PV-Anlagen." 
+            :tags [["InEntireNetworkNodeFilterDistanceScheme" "placeholder"]]
+          } 
+          {
+            :label "Maximale Entfernung" 
+            :set "set_InMaxDistanceNodeFilterDistanceScheme" 
+            :description "todo" 
+            :tags [["InMaxDistanceNodeFilterDistanceScheme" "maxDistance"] ["InMaxDistanceNodeFilterDistanceScheme" "inclusive"]]
+          }
+        ]
+      } 
+      {
+        :label "Komponenten für die Initialisierung" 
+        :description "todo" 
+        :sections [
+          {
+            :label "Agentattributskalierer" 
+            :set "set_InAgentAttributeScaler" 
+            :description "todo; newValue = (oldValue - min) / (max - min)" 
+            :tags [["InAgentAttributeScaler" "priority"] ["link" "InAgentAttributeScaler" "InAttributeName" "attribute"]]
+          } 
+          {
+            :label "Fancy Agentattributskalierer" 
+            :set "set_InLinearePercentageAgentAttributeScaler" 
+            :description "todo; y = m * x + n" 
+            :tags [["InLinearePercentageAgentAttributeScaler" "priority"] ["InLinearePercentageAgentAttributeScaler" "mValue"] ["InLinearePercentageAgentAttributeScaler" "nValue"] ["link" "InLinearePercentageAgentAttributeScaler" "InAttributeName" "attribute"]]
+          } 
+          {
+            :label "Initialisierer für Unsicherheiten" 
+            :set "set_InUncertaintySupplierInitializer" 
+            :description "todo" 
+            :tags [["InUncertaintySupplierInitializer" "priority"] ["link" "InUncertaintySupplierInitializer" "InUncertaintySupplier" "uncertaintySuppliers"]]
+          }
+        ]
+      } 
+      {
+        :label "Komponenten für die Reevaluierung" 
+        :description "todo" 
+        :sections [
+          {
+            :label "ReevaluatorModuleLinker" 
+            :set "set_InMultiReevaluator" 
+            :description "todo" 
+            :tags [["link" "InMultiReevaluator" "InConsumerAgentReevaluationModule2" "modules"]]
+          } 
+          {
+            :label "AnnualInterestLogger" 
+            :set "set_InAnnualInterestLogger" 
+            :description "todo" 
+            :tags [["InAnnualInterestLogger" "placeholder"]]
+          } 
+          {
+            :label "Updater für Unsicherheiten" 
+            :set "set_InUncertaintyReevaluator" 
+            :description "todo" 
+            :tags [["InUncertaintyReevaluator" "priorty"] ["link" "InUncertaintyReevaluator" "InUncertaintySupplier" "uncertaintySuppliers"]]
+          } 
+          {
+            :label "ConstructionRenovationUpdater" 
+            :set "set_InConstructionRenovationUpdater" 
+            :description "todo" 
+            :tags [["InConstructionRenovationUpdater" "placeholder"]]
+          } 
+          {
+            :label "DecisionMakingReevaluator" 
+            :set "set_InDecisionMakingReevaluator" 
+            :description "todo" 
+            :tags [["link" "InDecisionMakingReevaluator" "InConsumerAgentModule2" "modules"]]
+          } 
+          {
+            :label "ImpededResetter" 
+            :set "set_InImpededResetter" 
+            :description "todo" 
+            :tags [["InImpededResetter" "placeholder"]]
+          } 
+          {
+            :label "Fancy Agentenattributaktualisierer" 
+            :set "set_InLinearePercentageAgentAttributeUpdater" 
+            :description "todo" 
+            :tags [["InLinearePercentageAgentAttributeUpdater" "priority"] ["link" "InLinearePercentageAgentAttributeUpdater" "InLinearePercentageAgentAttributeScaler" "scaler"]]
+          }
+        ]
+      } 
+      {
+        :label "Allgemeine Module" 
+        :description "todo" 
+        :sections [
+          {
+            :label "Aktionsmodule" 
+            :description "todo" 
+            :sections [
+              {
+                :label "IfElseActionModule" 
+                :set "set_InIfElseActionModule3_actionnode3" 
+                :description "todo" 
+                :tags [["link" "InIfElseActionModule3" "actionnode3" "InConsumerAgentBoolModule2" "testModule"] ["link" "InIfElseActionModule3" "actionnode3" "InConsumerAgentActionModule2" "onTrueModule"] ["link" "InIfElseActionModule3" "actionnode3" "InConsumerAgentActionModule2" "onFalseModule"]]
+              } 
+              {
+                :label "NOP" 
+                :set "set_InNOPModule3_actionnode3" 
+                :description "todo" 
+                :tags [["InNOPModule3" "actionnode3" "placeholder"]]
+              }
+            ]
+          } 
+          {
+            :label "Entscheidungsmodule" 
+            :description "todo" 
+            :sections [
+              {
+                :label "BernoulliModule" 
+                :set "set_InBernoulliModule3_boolnode3" 
+                :description "todo" 
+                :tags [["InBernoulliModule3" "boolnode3" "priority"] ["link" "InBernoulliModule3" "boolnode3" "InConsumerAgentCalculationModule2" "inputModule"]]
+              } 
+              {
+                :label "ThresholdReachedModule" 
+                :set "set_InThresholdReachedModule3_boolnode3" 
+                :description "todo" 
+                :tags [["InThresholdReachedModule3" "boolnode3" "priority"] ["link" "InThresholdReachedModule3" "boolnode3" "InConsumerAgentCalculationModule2" "drawModule"] ["link" "InThresholdReachedModule3" "boolnode3" "InConsumerAgentCalculationModule2" "thresholdModule"]]
+              }
+            ]
+          } 
+          {
+            :label "Zahlenbasierte Eingabemodule" 
+            :description "todo" 
+            :sections [
+              {
+                :label "ValueModule" 
+                :set "set_InValueModule3_inputnode3" 
+                :description "todo" 
+                :tags [["InValueModule3" "inputnode3" "value"]]
+              } 
+              {
+                :label "NaNModule" 
+                :set "set_InNaNModule3_inputnode3" 
+                :description "Gibt NaN (not a number) zurück." 
+                :tags [["InNaNModule3" "inputnode3" "placeholder"]]
+              }
+            ]
+          } 
+          {
+            :label "Zahlenbasierte Auswertungsmodule" 
+            :description "todo" 
+            :sections [
+              {
+                :label "MulScalarModule" 
+                :set "set_InMulScalarModule3_calcnode3" 
+                :description "todo" 
+                :tags [["InMulScalarModule3" "calcnode3" "scalar"] ["link" "InMulScalarModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"]]
+              } 
+              {
+                :label "AddScalarModule" 
+                :set "set_InAddScalarModule3_calcnode3" 
+                :description "todo" 
+                :tags [["InAddScalarModule3" "calcnode3" "scalar"] ["link" "InAddScalarModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"]]
+              } 
+              {
+                :label "LogisticModule" 
+                :set "set_InLogisticModule3_calcnode3" 
+                :description "L/(1+e^(-k*(x-x0)))" 
+                :tags [["InLogisticModule3" "calcnode3" "valueL"] ["InLogisticModule3" "calcnode3" "valueK"] ["link" "InLogisticModule3" "calcnode3" "InConsumerAgentCalculationModule2" "xinputModule"] ["link" "InLogisticModule3" "calcnode3" "InConsumerAgentCalculationModule2" "x0inputModule"] ["InLogisticModule3" "calcnode3" "specialId"]]
+              } 
+              {
+                :label "SumModule" 
+                :set "set_InSumModule3_calcnode3" 
+                :description "todo" 
+                :tags [["link" "InSumModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"] ["InSumModule3" "calcnode3" "specialId"]]
+              } 
+              {
+                :label "ProductModule" 
+                :set "set_InProductModule3_calcnode3" 
+                :description "todo" 
+                :tags [["link" "InProductModule3" "calcnode3" "InConsumerAgentCalculationModule2" "inputModule"]]
+              }
+            ]
+          } 
+          {
+            :label "Systemmodule" 
+            :description "todo" 
+            :sections [
+              {
+                :label "RunUntilFailureModule" 
+                :set "set_InRunUntilFailureModule3_evalnode3" 
+                :description "todo" 
+                :tags [["link" "InRunUntilFailureModule3" "evalnode3" "InConsumerAgentModule2" "inputModule"]]
+              }
+            ]
+          } 
+          {
+            :label "Unabhängige Module" 
+            :description "todo" 
+            :sections [
+              {
+                :label "InReevaluatorModule" 
+                :set "set_InReevaluatorModule3_reevalnode3" 
+                :description "todo" 
+                :tags [["link" "InReevaluatorModule3" "reevalnode3" "InConsumerAgentModule2" "inputModule"]]
+              }
+            ]
+          }
+        ]
+      } 
+      {
+        :label "PVact-Module" 
+        :description "todo" 
+        :sections [
+          {
+            :label "Aktionsmodule" 
+            :description "todo" 
+            :sections [
+              {
+                :label "Kommunikationsmodul" 
+                :set "set_InCommunicationModule3_actionnode3" 
+                :description "todo" 
+                :tags [["InCommunicationModule3" "actionnode3" "adopterPoints"] ["InCommunicationModule3" "actionnode3" "interestedPoints"] ["InCommunicationModule3" "actionnode3" "awarePoints"] ["InCommunicationModule3" "actionnode3" "unknownPoints"] ["InCommunicationModule3" "actionnode3" "raEnabled"] ["InCommunicationModule3" "actionnode3" "raLoggingEnabled"] ["InCommunicationModule3" "actionnode3" "raOpinionLogging"] ["InCommunicationModule3" "actionnode3" "raUnceraintyLogging"] ["InCommunicationModule3" "actionnode3" "raPrintHeader"] ["InCommunicationModule3" "actionnode3" "raKeepCsv"] ["InCommunicationModule3" "actionnode3" "raStoreXlsx"] ["InCommunicationModule3" "actionnode3" "speedOfConvergence"] ["InCommunicationModule3" "actionnode3" "attitudeGap"] ["InCommunicationModule3" "actionnode3" "chanceNeutral"] ["InCommunicationModule3" "actionnode3" "chanceConvergence"] ["InCommunicationModule3" "actionnode3" "chanceDivergence"] ["link" "InCommunicationModule3" "actionnode3" "InUncertaintySupplier" "uncertaintySuppliers"]]
+              } 
+              {
+                :label "Rewiremodul" 
+                :set "set_InRewireModule3_actionnode3" 
+                :description "todo" 
+                :tags [["InRewireModule3" "actionnode3" "placeholder"]]
+              }
+            ]
+          } 
+          {
+            :label "Zahlenbasierte Eingabemodule" 
+            :description "todo" 
+            :sections [
+              {
+                :label "Attributmodul" 
+                :set "set_InAttributeInputModule3_inputnode3" 
+                :description "todo" 
+                :tags [["link" "InAttributeInputModule3" "inputnode3" "InAttributeName" "attribute"] ["InAttributeInputModule3" "inputnode3" "specialId"]]
+              } 
+              {
+                :label "GlobalAvgAgentNPVModule" 
+                :set "set_InGlobalAvgNPVModule3_inputnode3" 
+                :description "Berechnet den durchschnittlichen globalen (über alle Jahre) NPV über alle Kombinationsmöglichkeiten von Neigung und Ausrichtung der Agenten." 
+                :tags [["link" "InGlobalAvgNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalMaxAgentNPVModule" 
+                :set "set_InGlobalMaxAgentNPVModule2_inputnode3" 
+                :description "Berechnet den maximalen globalen (über alle Jahre) NPV über alle Kombinationsmöglichkeiten von Neigung und Ausrichtung der Agenten." 
+                :tags [["link" "InGlobalMaxAgentNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalMinAgentNPVModule" 
+                :set "set_InGlobalMinAgentNPVModule2_inputnode3" 
+                :description "Berechnet den minimalen globalen (über alle Jahre) NPV über alle Kombinationsmöglichkeiten von Neigung und Ausrichtung der Agenten." 
+                :tags [["link" "InGlobalMinAgentNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalAvgAssetNPVModule" 
+                :set "set_InGlobalAvgAssetNPVModule3_inputnode3" 
+                :description "Berechnet den simulationsweiten durchschnittlichen NPV auf Basis aller Dachkombinationen." 
+                :tags [["link" "InGlobalAvgAssetNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalMaxAssetNPVModule" 
+                :set "set_InGlobalMaxAssetNPVModule3_inputnode3" 
+                :description "Berechnet den simulationsweiten maximalen NPV auf Basis aller Dachkombinationen." 
+                :tags [["link" "InGlobalMaxAssetNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalMinAssetNPVModule" 
+                :set "set_InGlobalMinAssetNPVModule3_inputnode3" 
+                :description "Berechnet den simulationsweiten minimalen NPV auf Basis aller Dachkombinationen." 
+                :tags [["link" "InGlobalMinAssetNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualAvgAssetNPVModule" 
+                :set "set_InGlobalAvgExistingAssetNPVModule3_inputnode3" 
+                :description "Berechnet den simulationsweiten durchschnittlichen NPV auf Basis der existierenden Dächer." 
+                :tags [["link" "InGlobalAvgExistingAssetNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalMaxExistingAssetNPVModule" 
+                :set "set_InGlobalMaxExistingAssetNPVModule3_inputnode3" 
+                :description "Berechnet den simulationsweiten maximalen NPV auf Basis der existierenden Dächer." 
+                :tags [["link" "InGlobalMaxExistingAssetNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalMinExistingAssetNPVModule" 
+                :set "set_InGlobalMinExistingAssetNPVModule3_inputnode3" 
+                :description "Berechnet den simulationsweiten minimalen NPV auf Basis der existierenden Dächer." 
+                :tags [["link" "InGlobalMinExistingAssetNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "NPVModule" 
+                :set "set_InNPVModule3_inputnode3" 
+                :description "Berechnet den NPV für einen einzelnen Agenten in Abhängigkeit des Jahres." 
+                :tags [["link" "InNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualNormAgentNPVModule" 
+                :set "set_InAnnualNormAgentNPVModule_inputnode3" 
+                :description "Berechnet den NPV des Agenten als normierten Wert bzgl. des jährlichen NPV der existierenden Agenten." 
+                :tags [["link" "InAnnualNormAgentNPVModule" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualNormAssetNPVModule" 
+                :set "set_InAnnualNormAssetNPVModule_inputnode3" 
+                :description "Berechnet den NPV des Agenten als normierten Wert bzgl. des jährlichen NPV aller möglichen Dachkombinationen." 
+                :tags [["link" "InAnnualNormAssetNPVModule" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualNormExistingAssetNPVModule" 
+                :set "set_InAnnualNormExistingAssetNPVModule_inputnode3" 
+                :description "Berechnet den NPV des Agenten als normierten Wert bzgl. des jährlichen NPV der existierenden Dachkombinationen." 
+                :tags [["link" "InAnnualNormExistingAssetNPVModule" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalNormAgentNPVModule" 
+                :set "set_InGlobalNormAgentNPVModule_inputnode3" 
+                :description "Berechnet den NPV des Agenten als normierten Wert bzgl. alle (simulationsweit) Kombinationsmöglichkeiten von Neigung und Ausrichtung der Agenten." 
+                :tags [["link" "InGlobalNormAgentNPVModule" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalNormAssetNPVModule" 
+                :set "set_InGlobalNormAssetNPVModule_inputnode3" 
+                :description "Berechnet den NPV des Agenten als normierten Wert bzgl. aller Dachkombinationen (simulationsweit)." 
+                :tags [["link" "InGlobalNormAssetNPVModule" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "GlobalNormExistingAssetNPVModule" 
+                :set "set_InGlobalNormExistingAssetNPVModule_inputnode3" 
+                :description "Berechnet den NPV des Agenten als normierten Wert bzgl. der existierenden Dachkombinationen (simulationsweit)." 
+                :tags [["link" "InGlobalNormExistingAssetNPVModule" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "Spezielles NPV Logistik Modul" 
+                :set "set_InMagicNPVLogisticModule_inputnode3" 
+                :description "Berechnet den NPV des Agenten, normiert ihn, wendet die logistische Funktion an und transformiert ihn in den angegebenden Bereich." 
+                :tags [["link" "InMagicNPVLogisticModule" "inputnode3" "InPVFile" "pvFile"] ["InMagicNPVLogisticModule" "inputnode3" "npvId"] ["InMagicNPVLogisticModule" "inputnode3" "valueL"] ["InMagicNPVLogisticModule" "inputnode3" "valueK"] ["InMagicNPVLogisticModule" "inputnode3" "x0"] ["InMagicNPVLogisticModule" "inputnode3" "move"] ["InMagicNPVLogisticModule" "inputnode3" "scale"] ["InMagicNPVLogisticModule" "inputnode3" "newRangeMin"] ["InMagicNPVLogisticModule" "inputnode3" "newRangeMax"]]
+              } 
+              {
+                :label "NPV-Auswahl-Module" 
+                :set "set_InSelectNPVModule3_inputnode3" 
+                :description "Berechnet den NPV auf verschiedene Varianten: 1: der Standard-NPV des Agenten für das Simulationsjahr 2: jährlicher Durchschnitt über existierende Dachkombinationen 3: jährlicher Durchschnitt über alle möglichen Dachkombinationen 4: jährlicher Durchschnitt über alle Agenten 5: simulationsweiter Durchschnitt über existierende Dachkombinationen 6: simulationsweiter Durchschnitt über alle möglichen Dachkombinationen 7: simulationsweiter Durchschnitt über alle Agenten 8 - 25: ... " 
+                :tags [["InSelectNPVModule3" "inputnode3" "npvId"] ["link" "InSelectNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "NPV-Logistikmodul" 
+                :set "set_InNPVLogisticModule3_calcnode3" 
+                :description "L/(1+e^(-k*(x-x0))) mit x als NPV und x0: 1: jährliches min/max über existierende Dachkombinationen 2: jährliches min/max über alle möglichen Dachkombinationen 3: jährliches min/max über alle Agenten 4: simulationsweites min/max über existierende Dachkombinationen 5: simulationsweites min/max über alle möglichen Dachkombinationen 6: simulationsweites min/max über alle Agenten " 
+                :tags [["InNPVLogisticModule3" "calcnode3" "valueL"] ["InNPVLogisticModule3" "calcnode3" "valueK"] ["InNPVLogisticModule3" "calcnode3" "npvId"] ["link" "InNPVLogisticModule3" "calcnode3" "InPVFile" "pvFile"] ["InNPVLogisticModule3" "calcnode3" "specialId"]]
+              } 
+              {
+                :label "AssetNPVModule" 
+                :set "set_InAssetNPVModule3_inputnode3" 
+                :description "(VERALTET) Berechnet den NPV für einen einzelnen Agenten in Abhängig des Jahres. Der Wert wird in Abhängigkeit von Neigung und Ausrichtung gewichtet." 
+                :tags [["link" "InAssetNPVModule3" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualAvgNPVModule" 
+                :set "set_InAnnualAvgNPVModule2_inputnode3" 
+                :description "(VERALTET) Berechnet den jährlichen durchschnittlichen NPV unabhängig von den Agenten über alle Ausrichtungen und Neigungen." 
+                :tags [["link" "InAnnualAvgNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualAvgAgentNPVModule" 
+                :set "set_InAnnualAvgAgentNPVModule2_inputnode3" 
+                :description "Berechnet den jährlichen durchschnittlichen NPV auf Basis der existierenden Agenten." 
+                :tags [["link" "InAnnualAvgAgentNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualMaxAgentNPVModule" 
+                :set "set_InAnnualMaxAgentNPVModule2_inputnode3" 
+                :description "Berechnet den jährlichen maximalen NPV auf Basis der existierenden Agenten." 
+                :tags [["link" "InAnnualMaxAgentNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualMinAgentNPVModule" 
+                :set "set_InAnnualMinAgentNPVModule2_inputnode3" 
+                :description "Berechnet den jährlichen minimalen NPV auf Basis der existierenden Agenten." 
+                :tags [["link" "InAnnualMinAgentNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualAvgAssetNPVModule2" 
+                :set "set_InAnnualAvgExistingAssetNPVModule2_inputnode3" 
+                :description "Berechnet den jährlichen durchschnittlichen NPV auf Basis der aller möglichen Dachkombinationen." 
+                :tags [["link" "InAnnualAvgAssetNPVModule2" "inputnode3" "InPVFile" "pvFile"] ["link" "InAnnualAvgExistingAssetNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualMaxAssetNPVModule" 
+                :set "set_InAnnualMaxAssetNPVModule2_inputnode3" 
+                :description "Berechnet den jährlichen maximalen NPV auf Basis der aller möglichen Dachkombinationen." 
+                :tags [["link" "InAnnualMaxAssetNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualMinAssetNPVModule" 
+                :set "set_InAnnualMinAssetNPVModule2_inputnode3" 
+                :description "Berechnet den jährlichen minimalen NPV auf Basis der aller möglichen Dachkombinationen." 
+                :tags [["link" "InAnnualMinAssetNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualMaxExistingAssetNPVModule" 
+                :set "set_InAnnualMaxExistingAssetNPVModule2_inputnode3" 
+                :description "Berechnet den jährlichen maximalen NPV auf Basis der existierenden Dächer." 
+                :tags [["link" "InAnnualMaxExistingAssetNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualMinExistingAssetNPVModule" 
+                :set "set_InAnnualMinExistingAssetNPVModule2_inputnode3" 
+                :description "Berechnet den jährlichen minimalen NPV auf Basis der existierenden Dächer." 
+                :tags [["link" "InAnnualMinExistingAssetNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "AnnualAvgAgentAssetNPVModule" 
+                :set "set_InAnnualAvgAgentAssetNPVModule2_inputnode3" 
+                :description "(VERALTET) Berechnet den jährlichen durchschnittlichen NPV auf Basis der existierenden Agenten. Die NPV Werte werden dabei anhand von Neigung und Ausrichtung gewichtet." 
+                :tags [["link" "InAnnualAvgAgentAssetNPVModule2" "inputnode3" "InPVFile" "pvFile"]]
+              } 
+              {
+                :label "LocalShareOfAdopterModule" 
+                :set "set_InLocalShareOfAdopterModule3_inputnode3" 
+                :description "todo" 
+                :tags [["InLocalShareOfAdopterModule3" "inputnode3" "maxToStore"] ["link" "InLocalShareOfAdopterModule3" "inputnode3" "InNodeDistanceFilterScheme" "nodeFilterScheme"] ["InLocalShareOfAdopterModule3" "inputnode3" "specialId"]]
+              } 
+              {
+                :label "SocialShareOfAdopterModule" 
+                :set "set_InSocialShareOfAdopterModule3_inputnode3" 
+                :description "todo" 
+                :tags [["InSocialShareOfAdopterModule3" "inputnode3" "placeholder"] ["InSocialShareOfAdopterModule3" "inputnode3" "specialId"]]
+              } 
+              {
+                :label "AvgFinModule" 
+                :set "set_InAvgFinModule3_inputnode3" 
+                :description "todo" 
+                :tags [["InAvgFinModule3" "inputnode3" "placeholder"]]
+              }
+            ]
+          } 
+          {
+            :label "Zahlenbasierte Loggingmodule" 
+            :description "todo" 
+            :sections [
+              {
+                :label "MinimalCsvValueLoggingModule" 
+                :set "set_InCsvValueLoggingModule3_calclognode3" 
+                :description "todo" 
+                :tags [["InCsvValueLoggingModule3" "calclognode3" "enabled"] ["InCsvValueLoggingModule3" "calclognode3" "logReevaluatorCall"] ["InCsvValueLoggingModule3" "calclognode3" "logDefaultCall"] ["InCsvValueLoggingModule3" "calclognode3" "printHeader"] ["InCsvValueLoggingModule3" "calclognode3" "storeXlsx"] ["link" "InCsvValueLoggingModule3" "calclognode3" "InConsumerAgentCalculationModule2" "inputModule"]]
+              } 
+              {
+                :label "SpecialUtilityCsvValueLoggingModule" 
+                :set "set_InSpecialUtilityCsvValueLoggingModule3_calcnode3" 
+                :description "todo" 
+                :tags [["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InConsumerAgentCalculationModule2" "utilityModule"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "utilityLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "localShareLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "socialShareLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "envLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "novLogger"] ["link" "InSpecialUtilityCsvValueLoggingModule3" "calcnode3" "InCsvValueLoggingModule3" "calclognode3" "npvLogger"]]
+              }
+            ]
+          } 
+          {
+            :label "PV spezifische allgemeine Module" 
+            :description "todo" 
+            :sections [
+              {
+                :label "DecisionMakingDeciderModule" 
+                :set "set_InDecisionMakingDeciderModule3_evalranode3" 
+                :description "todo" 
+                :tags [["InDecisionMakingDeciderModule3" "evalranode3" "forceEvaluation"] ["link" "InDecisionMakingDeciderModule3" "evalranode3" "InConsumerAgentBoolModule2" "finCheckModule"] ["link" "InDecisionMakingDeciderModule3" "evalranode3" "InConsumerAgentCalculationModule2" "thresholdModule"] ["link" "InDecisionMakingDeciderModule3" "evalranode3" "InConsumerAgentCalculationModule2" "utilityModule"]]
+              } 
+              {
+                :label "DoAdoptModule" 
+                :set "set_InDoAdoptModule3_evalranode3" 
+                :description "todo" 
+                :tags [["link" "InDoAdoptModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"]]
+              } 
+              {
+                :label "FeasibilityModule" 
+                :set "set_InFeasibilityModule3_evalranode3" 
+                :description "todo" 
+                :tags [["link" "InFeasibilityModule3" "evalranode3" "InConsumerAgentActionModule2" "inputModule"]]
+              } 
+              {
+                :label "InitializationModule" 
+                :set "set_InInitializationModule3_evalranode3" 
+                :description "todo" 
+                :tags [["InInitializationModule3" "evalranode3" "placeholder"]]
+              } 
+              {
+                :label "InterestModule" 
+                :set "set_InInterestModule3_evalranode3" 
+                :description "todo" 
+                :tags [["link" "InInterestModule3" "evalranode3" "InConsumerAgentActionModule2" "inputModule"]]
+              } 
+              {
+                :label "MainBranchingModule" 
+                :set "set_InMainBranchingModule3_evalranode3" 
+                :description "todo" 
+                :tags [["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "initModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "awarenessModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "feasibilityModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "decisionModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentActionModule2" "adoptedModule"] ["link" "InMainBranchingModule3" "evalranode3" "InConsumerAgentActionModule2" "impededModule"]]
+              } 
+              {
+                :label "PhaseUpdateModule" 
+                :set "set_InPhaseUpdateModule3_evalranode3" 
+                :description "todo" 
+                :tags [["link" "InPhaseUpdateModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"]]
+              } 
+              {
+                :label "YearBasedAdoptionDeciderModule" 
+                :set "set_InYearBasedAdoptionDeciderModule3_evalranode3" 
+                :description "rnd.draw < base * pow(factor, currentYear - adoptionYear)" 
+                :tags [["InYearBasedAdoptionDeciderModule3" "evalranode3" "enabled"] ["InYearBasedAdoptionDeciderModule3" "evalranode3" "base"] ["InYearBasedAdoptionDeciderModule3" "evalranode3" "factor"] ["link" "InYearBasedAdoptionDeciderModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"]]
+              }
+            ]
+          } 
+          {
+            :label "PV spezifische Loggingmodule" 
+            :description "todo" 
+            :sections [
+              {
+                :label "PhaseLoggingModule" 
+                :set "set_InPhaseLoggingModule3_evalranode3" 
+                :description "todo" 
+                :tags [["InPhaseLoggingModule3" "evalranode3" "enabled"] ["link" "InPhaseLoggingModule3" "evalranode3" "InConsumerAgentEvalRAModule2" "inputModule"]]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  } 
+  {
+    :label "Räumliche Modell" 
+    :description "Definiert das räumliche Modell und zugehörige Komponenten." 
+    :sections [
+      {
+        :label "Modell" 
+        :description "Definiert das räumliche Modell." 
+        :sections [
+          {
+            :label "Space2D" 
+            :set "set_InSpace2D" 
+            :description "Nutzt ein 2D-Modell mit der gewünschten Metrik." 
+            :tags [["InSpace2D" "useManhatten"] ["InSpace2D" "useEuclid"] ["InSpace2D" "useEuclid2"] ["InSpace2D" "useMaximum"] ["InSpace2D" "useHaversineM"] ["InSpace2D" "useHaversineKM"]]
+          }
+        ]
+      } 
+      {
+        :label "Verteilungsfunktionen" 
+        :description "Ermöglicht es die räumlichen Verteilungsfunktionen zu definieren." 
+        :sections [
+          {
+            :label "Dateibezogen" 
+            :description "Ermöglicht es räumliche Verteilungsfunktionen zu definieren, deren Daten aus Dateien geladen werden." 
+            :sections [
+              {
+                :label "Gelesene Positionen" 
+                :description "Ermöglicht es räumliche Verteilungsfunktionen zu definieren, deren Daten aus Dateien geladen werden. Die Positionen werden dabei ebenfalls aus den Dateien gelesen." 
+                :sections [
+                  {
+                    :label "Unzugeordnet" 
+                    :set "set_InFileBasedSpatialInformationSupplier" 
+                    :description "Die Daten werden ohne weitere Berücksichtigungen verwendet." 
+                    :tags [["link" "InFileBasedSpatialInformationSupplier" "InAttributeName" "xPositionKey"] ["link" "InFileBasedSpatialInformationSupplier" "InAttributeName" "yPositionKey"] ["link" "InFileBasedSpatialInformationSupplier" "InAttributeName" "idKey"] ["link" "InFileBasedSpatialInformationSupplier" "InSpatialTableFile" "file"]]
+                  } 
+                  {
+                    :label "Zugeordnet" 
+                    :set "set_InFileBasedSelectSpatialInformationSupplier" 
+                    :description "Die Daten werden, basierend auf einem gewünschtem Attribut, zugeordnet. Die Zuordnung basiert dabei auf Basis des Bezeichners der Agentengruppen." 
+                    :tags [["link" "InFileBasedSelectSpatialInformationSupplier" "InAttributeName" "xPositionKey"] ["link" "InFileBasedSelectSpatialInformationSupplier" "InAttributeName" "yPositionKey"] ["link" "InFileBasedSelectSpatialInformationSupplier" "InAttributeName" "idKey"] ["link" "InFileBasedSelectSpatialInformationSupplier" "InSpatialTableFile" "file"] ["link" "InFileBasedSelectSpatialInformationSupplier" "InAttributeName" "selectKey"]]
+                  } 
+                  {
+                    :label "Zugeordnet und gewichtet" 
+                    :set "set_InFileBasedSelectGroupSpatialInformationSupplier" 
+                    :description "Die Daten werden, basierend auf einem gewünschtem Attribut, zugeordnet. Die Zuordnung basiert dabei auf Basis des Bezeichners der Agentengruppen. Zusätzlich wird ein Gruppierungsattribut genutzt, um die Daten zu wichten." 
+                    :tags [["link" "InFileBasedSelectGroupSpatialInformationSupplier" "InAttributeName" "xPositionKey"] ["link" "InFileBasedSelectGroupSpatialInformationSupplier" "InAttributeName" "yPositionKey"] ["link" "InFileBasedSelectGroupSpatialInformationSupplier" "InAttributeName" "idKey"] ["link" "InFileBasedSelectGroupSpatialInformationSupplier" "InSpatialTableFile" "file"] ["link" "InFileBasedSelectGroupSpatialInformationSupplier" "InAttributeName" "selectKey"] ["link" "InFileBasedSelectGroupSpatialInformationSupplier" "InAttributeName" "groupKey"]]
+                  } 
+                  {
+                    :label "PVact - Milieu" 
+                    :set "set_InFileBasedPVactMilieuSupplier" 
+                    :description "Die Daten werden, basierend auf dem Milieu, zugeordnet." 
+                    :tags [["link" "InFileBasedPVactMilieuSupplier" "InSpatialTableFile" "file"]]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  } 
+  {
+    :label "Zeitliche Modell" 
+    :description "Definiert das zeitliche Modell. Es muss immer genau ein Modell definiert sein." 
+    :sections [
+      {
+        :label "Diskret" 
+        :set "set_InUnitStepDiscreteTimeModel" 
+        :description "Stellt das diskreze Zeitmodell ein. Dabei ist zu beachten, dass nur eine Zeiteinheit ausgewählt werden darf." 
+        :tags [["InUnitStepDiscreteTimeModel" "amountOfTime"] ["InUnitStepDiscreteTimeModel" "useMs"] ["InUnitStepDiscreteTimeModel" "useSec"] ["InUnitStepDiscreteTimeModel" "useMin"] ["InUnitStepDiscreteTimeModel" "useH"] ["InUnitStepDiscreteTimeModel" "useD"] ["InUnitStepDiscreteTimeModel" "useW"] ["InUnitStepDiscreteTimeModel" "useM"]]
+      }
+    ]
+  } 
+  {
+    :label "Submodule" 
+    :description "Einstellungen für Submodule" 
+    :sections [
+      {
+        :label "OptAct" 
+        :description "Modul mit Testparametern für die Kopplung." 
+        :sections [
+          {
+            :label "Set" 
+            :description "Hier sind Sets." 
+            :sections [
+              {
+                :label "Kundengruppen" 
+                :set "set_side_cust" 
+                :description "Hier sind Kundengruppen." 
+                :tags [["S" "DS"] ["kg" "modifier"] ["IuO" "ESector" "CustSide"]]
+              } 
+              {
+                :label "Strom-Verbrauchertechnologie" 
+                :set "set_load_DS_E" 
+                :description "Hier sind Strom-Verbrauchertechnologie" 
+                :tags [["L" "DS" "E"]]
+              } 
+              {
+                :label "Stromspeicher" 
+                :set "set_tech_DES_ES" 
+                :description "Hier sind Stromspeicher." 
+                :tags [["Inc" "PS" "ES"]]
+              } 
+              {
+                :label "PV" 
+                :set "set_tech_DES_PV" 
+                :description "Hier sind PV." 
+                :tags [["A" "DES" "PV"]]
+              }
+            ]
+          } 
+          {
+            :label "Skalare und einfache Zeitreihen" 
+            :description "Hier sind die skalaren Werte und einfache Zeitreihen" 
+            :sections [
+              {
+                :label "Skalare" 
+                :description "Hier stehen skalare Werte" 
+                :tags [["Tax" "PS" "vat"] ["X" "MS" "DE" "country"] ["X" "MS" "CH" "country"]]
+              } 
+              {
+                :label "Zeitreihen" 
+                :description "Hier stehen einfache Zeitreihen" 
+                :tags [["C" "MS" "E"]]
+              }
+            ]
+          } 
+          {
+            :label "Link" 
+            :description "Hier stehen Tables-Einträge." 
+            :sections [
+              {
+                :label "Table" 
+                :set "set_tech_DES_ES" 
+                :description "Hier stehen primitive Tables-Einträge." 
+                :tags [["SOH" "pss" "sector"]]
+              } 
+              {
+                :label "TableWithTimeSeries" 
+                :set "set_load_DS_E" 
+                :description "Hier stehen Zeitreihen als Tables-Einträge." 
+                :tags [["F" "E" "EGrid" "energy"]]
+              }
+            ]
+          } 
+          {
+            :label "Agentengruppen für Graphviz" 
+            :set "set_AgentGroup" 
+            :description "Agentengruppe, welche im Graphen dargestellt werden sollen." 
+            :tags [["AgentGroup" "numberOfAgents"] ["link" "AgentGroup" "GraphvizColor" "agentColor"]]
+          } 
+          {
+            :label "Graphviz" 
+            :description "Graphviz Einstellungen" 
+            :sections [
+              {
+                :label "Topologie" 
+                :description "unterstützte Topologien" 
+                :sections [
+                  {
+                    :label "Watts-Strogatz-Model" 
+                    :set "set_IWattsStrogatzModel" 
+                    :description "Watts-Strogatz-Model" 
+                    :tags [["IWattsStrogatzModel" "wsmK"] ["IWattsStrogatzModel" "wsmBeta"] ["IWattsStrogatzModel" "wsmSelfReferential"] ["IWattsStrogatzModel" "wsmSeed"] ["IWattsStrogatzModel" "wsmUseThis"]]
+                  } 
+                  {
+                    :label "Freie Topologie" 
+                    :set "set_IFreeMultiGraphTopology" 
+                    :description "Freie Topologie" 
+                    :tags [["IFreeMultiGraphTopology" "ftEdgeCount"] ["IFreeMultiGraphTopology" "ftSelfReferential"] ["IFreeMultiGraphTopology" "ftSeed"] ["IFreeMultiGraphTopology" "ftUseThis"]]
+                  }
+                ]
+              } 
+              {
+                :label "Farben" 
+                :set "set_GraphvizColor" 
+                :description "Farben, welche von Graphviz bei der Grapherstellung genutzt werden sollen." 
+                :tags [["GraphvizColor" "rgba"]]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  } 
+  {
+    :label "Develop" 
+    :description "Testoptionen" 
+    :sections [
+      {
+        :label "Testdaten" 
+        :description "Testdaten" 
+        :sections [
+          {
+            :label "Einfache Testdaten" 
+            :set "set_InTestData" 
+            :description "Testdaten" 
+            :tags [["InTestData" "testValue1"] ["InTestData" "testValue2"] ["InTestData" "value01"] ["InTestData" "value02"] ["InTestData" "value11"] ["InTestData" "value12"] ["InTestData" "value13"] ["InTestData" "value14"] ["InTestData" "value21"] ["InTestData" "value22"] ["InTestData" "value23"] ["InTestData" "value24"] ["InTestData" "value25"] ["InTestData" "value26"] ["InTestData" "value27"] ["InTestData" "sensi1"] ["InTestData" "sensi2"] ["InTestData" "sensi3"]]
+          }
+        ]
+      } 
+      {
+        :label "DEPRECATED" 
+        :description "..." 
+        :sections [
+          {
+            :label "ErgebnisvisualisierungOLD" 
+            :description "Hier kann die Ergebnisvisualisierung konfiguriert werden. Der Bezeichner für die Setelemente wird dabei als Basisname verwendet. Wird zum Beispiel eine Visualisierung mittels gnuplot und dem Namen 'Ergebnis' definiert, werden folgende drei Dateien erstellt: Ergebnis.csv (Daten), Ergebnis.gnu (Skript) und Ergebnis.png (Bild). Es kann zusätzlich individuell eingestellt werden, welche Dateien gespeichert und zum Download angeboten werden können." 
+            :sections [
+              {
+                :label "Benutzerdefiniert" 
+                :set "set_InGenericOutputImage" 
+                :description "Hier kann für die Bilderzeugung das entsprechende Programm mittels 'Visualisierungsprogramm' individuell eingestellt werden. Der Bezeichner wird dabei als Basisname verwendet. Wird beispielsweise eine Visualisierung mit dem Namen 'Ergebnis' definiert, werdem für gnuplot Ergebnis.csv (Daten), Ergebnis.gnu (Skript) und Ergebnis.png (Bild) erstellt. Für R werden Ergebnis.csv (Daten), Ergebnis.R (Skript) und Ergebnis.png (Bild) erstellt" 
+                :tags [["InGenericOutputImage" "useGnuplot"] ["InGenericOutputImage" "useR"] ["InGenericOutputImage" "annualZip"] ["InGenericOutputImage" "annualZipWithReal"] ["InGenericOutputImage" "annualZipWithRealTotal"] ["InGenericOutputImage" "cumulativeAnnualPhase"] ["InGenericOutputImage" "cumulativeAnnualPhase2"] ["InGenericOutputImage" "annualInterest2D"] ["InGenericOutputImage" "annualPhaseOverview"] ["InGenericOutputImage" "storeScript"] ["InGenericOutputImage" "storeData"] ["InGenericOutputImage" "storeImage"] ["InGenericOutputImage" "imageWidth"] ["InGenericOutputImage" "imageHeight"] ["InGenericOutputImage" "linewidth"] ["link" "InGenericOutputImage" "InRealAdoptionDataFile" "realAdoptionDataFile"]]
+              } 
+              {
+                :label "gnuplot" 
+                :set "set_InGnuPlotOutputImage" 
+                :description "Die hier definierten Bilder werden mittels gnuplot erstellt. Der Bezeichner für die Setelemente wird dabei als Basisname verwendet. Wird beispielsweise eine Visualisierung mit dem Namen 'Ergebnis' definiert, werdem Ergebnis.csv (Daten), Ergebnis.gnu (Skript) und Ergebnis.png (Bild) erstellt." 
+                :tags [["InGnuPlotOutputImage" "annualZip"] ["InGnuPlotOutputImage" "annualZipWithReal"] ["InGnuPlotOutputImage" "annualZipWithRealTotal"] ["InGnuPlotOutputImage" "cumulativeAnnualPhase"] ["InGnuPlotOutputImage" "cumulativeAnnualPhase2"] ["InGnuPlotOutputImage" "annualInterest2D"] ["InGnuPlotOutputImage" "annualPhaseOverview"] ["InGnuPlotOutputImage" "storeScript"] ["InGnuPlotOutputImage" "storeData"] ["InGnuPlotOutputImage" "storeImage"] ["InGnuPlotOutputImage" "imageWidth"] ["InGnuPlotOutputImage" "imageHeight"] ["InGnuPlotOutputImage" "linewidth"] ["link" "InGnuPlotOutputImage" "InRealAdoptionDataFile" "realAdoptionDataFile"]]
+              } 
+              {
+                :label "R" 
+                :set "set_InROutputImage" 
+                :description "Die hier definierten Bilder werden mittels R erstellt. Der Bezeichner für die Setelemente wird dabei als Basisname verwendet. Wird beispielsweise eine Visualisierung mit dem Namen 'Ergebnis' definiert, werdem Ergebnis.csv (Daten), Ergebnis.R (Skript) und Ergebnis.png (Bild) erstellt." 
+                :tags [["InROutputImage" "annualZip"] ["InROutputImage" "annualZipWithReal"] ["InROutputImage" "annualZipWithRealTotal"] ["InROutputImage" "cumulativeAnnualPhase"] ["InROutputImage" "cumulativeAnnualPhase2"] ["InROutputImage" "annualInterest2D"] ["InROutputImage" "annualPhaseOverview"] ["InROutputImage" "storeScript"] ["InROutputImage" "storeData"] ["InROutputImage" "storeImage"] ["InROutputImage" "imageWidth"] ["InROutputImage" "imageHeight"] ["InROutputImage" "linewidth"] ["link" "InROutputImage" "InRealAdoptionDataFile" "realAdoptionDataFile"]]
+              }
+            ]
+          } 
+          {
+            :label "Datenausgabe" 
+            :description "Hier kann die Datenausgabe konfiguriert werden." 
+            :tags [["InGeneral" "logPhaseOverview"] ["InGeneral" "logInterest"] ["InGeneral" "logEvaluation"] ["InGeneral" "evaluationBucketSize"]]
+          }
+        ]
+      }
+    ]
+  }
+]
