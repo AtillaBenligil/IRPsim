@@ -1,4 +1,6 @@
 # IRPact
+[![Java CI](https://github.com/IRPsim/IRPact/actions/workflows/ci.yml/badge.svg)](https://github.com/IRPsim/IRPact/actions/workflows/ci.yml)
+
 IRPact is a framework for agent-based modelling of innovation diffusion of sustainable products in private households. It is written in the Java programming language based on the Jadex agent framework and can be used as a free-standing program or integrated in modeling infrastructure, such as [IRPsim](https://irpsim.uni-leipzig.de/artifacts/ui-client-irpact-develop/#!/models/modelDefinition/3).
 
 It provides a rich, empirically and theoretically grounded set of variables and is temporally discrete and spatially explicit and features a rich process and decision process, as well as flexible social network modeling. Agents are modeled explicitly as instantances derived from (socio-economic) agent groups that are described through probability distributions the agents are based on. The framework has been developed and implemented within the [SUSIC project](https://www.wifa.uni-leipzig.de/institut-fuer-infrastruktur-und-ressourcenmanagement/professuren/professur-fuer-energiemanagement-und-nachhaltigkeit/forschung/susic/).
@@ -30,6 +32,30 @@ gradlew clean buildUberJar
 (on a windows-based machine).
 
 This will create the respective .jar file (IRPact-1.0-SNAPSHOT-uber.jar) in the build/libs folder that bundles all required functionality.
+
+### Development Verification
+
+To run all project checks used in CI (default tests, internal tests, toy model tests, and uber-jar build), execute:
+
+```bash
+./gradlew verifyAll
+```
+
+If your shell does not find Java, set `JAVA_HOME` explicitly before running Gradle (example for macOS):
+
+```bash
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home
+export PATH="$JAVA_HOME/bin:$PATH"
+./gradlew verifyAll
+```
+
+### Sprint Execution Support
+
+For assessment execution support and reproducible submission prep, see:
+
+* `resit-progress.md` (technical work log)
+* `resit-release-checklist.md` (release/demo/report readiness checklist)
+* `irpsim-security-implementation-plan.md` (LDAP + RBAC implementation plan template for IRPsim backend repos)
 
 ### Running the Model
 In order to run the model, you need the mentioned .jar file and a valid model configuration file (scenario-file) in the .json format (see configuration guide on how to create these files). 

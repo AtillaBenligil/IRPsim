@@ -71,6 +71,12 @@ task internaltest(type: Test) {
     useJUnitPlatform()
 }
 
+tasks.register('verifyAll') {
+    description = 'Run all verification checks (default tests, internal tests, toy model tests, and uber-jar build).'
+    group = 'verification'
+    dependsOn 'clean', 'build', 'internaltest', 'toymodel', 'buildUberJar'
+}
+
 idea {
     module {
         testSourceDirs += project.sourceSets.toymodel.java.srcDirs
