@@ -8,6 +8,8 @@ import javax.ws.rs.core.Response;
 
 import de.unileipzig.irpsim.server.data.Responses;
 import de.unileipzig.irpsim.server.optimisation.queue.OptimisationJobHandler;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
+import de.unileipzig.irpsim.server.security.authorization.RequiresGroup;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -21,6 +23,7 @@ import io.swagger.annotations.ApiResponses;
  */
 @Path("/cleanup")
 @Api(value = "/cleanup", tags = "Bereinigen")
+@RequiresAuthentication
 public class CleanupEndpoint {
 
 	private static Cleaner cleaner = null;
@@ -38,6 +41,7 @@ public class CleanupEndpoint {
 	 */
 	@Path("/start/")
 	@GET
+	@RequiresGroup("admin")
 	@ApiOperation(value = "Bereinigt die Server-Daten.", notes = "Bereinigt die Server-Daten auf, d.h. sucht nicht referenzierte Datensätze und löscht diese und optimiert die Tabellen."
 			+ " Achtung: Solange der Prozess läuft, sollten keine Jobs laufen oder gestartet werden!")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Ok") })

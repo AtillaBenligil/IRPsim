@@ -1,6 +1,32 @@
 # IRPsim backend
 
+[![Build IRPsim](https://github.com/IRPsim/backend/actions/workflows/buildBackend.yml/badge.svg)](https://github.com/IRPsim/backend/actions/workflows/buildBackend.yml)
+
 This repository provides the backend for the IRPsim infrastructure, which enables input and output data management for models in the energy domain, model execution management and model coupling.
+
+## Security Sprint Execution Support
+
+For the resit LDAP and RBAC implementation work, use these repository-local artifacts:
+
+* `irpsim-security-implementation-plan.md`
+* `resit-release-checklist.md`
+* `resit-progress.md`
+
+### Authentication Scaffold (Sprint 1)
+
+Current scaffold endpoints:
+
+* `POST /simulation/auth/login`
+* `POST /simulation/auth/logout`
+* `POST /simulation/auth/change-password`
+
+LDAP configuration environment variables:
+
+* `IRPSIM_LDAP_URL`
+* `IRPSIM_LDAP_BASE_DN`
+* `IRPSIM_LDAP_BIND_DN`
+* `IRPSIM_LDAP_BIND_PASSWORD`
+* `IRPSIM_LDAP_USER_DN_PATTERN` (default: `uid=%s`)
 
 # Starting
 

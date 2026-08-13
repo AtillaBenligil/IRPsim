@@ -33,6 +33,8 @@ import de.unileipzig.irpsim.core.utils.PersistenceFolderUtil;
 import de.unileipzig.irpsim.server.endpoints.Cleaner;
 import de.unileipzig.irpsim.server.endpoints.ScenarioVersionUpdater;
 import de.unileipzig.irpsim.server.optimisation.queue.OptimisationJobHandler;
+import de.unileipzig.irpsim.server.security.filter.AuthRequestFilter;
+import de.unileipzig.irpsim.server.security.filter.AuthorizationRequestFilter;
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
@@ -73,6 +75,8 @@ public final class ServerStarter {
 		rc.register(JacksonJaxbJsonProvider.class);
 //		rc.register(JacksonJsonProvider.class);
 		rc.register(JsonParseExceptionExceptionHandler.class);
+		rc.register(AuthRequestFilter.class);
+		rc.register(AuthorizationRequestFilter.class);
 		rc.register(ApiListingResource.class);
 		rc.register(SwaggerSerializers.class);
 
