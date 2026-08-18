@@ -22,6 +22,7 @@ import de.unileipzig.irpsim.core.simulation.data.json.JSONParametersMultimodel;
 import de.unileipzig.irpsim.core.simulation.data.json.YearData;
 import de.unileipzig.irpsim.server.data.Responses;
 import de.unileipzig.irpsim.server.optimisation.queue.OptimisationJobHandler;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -32,6 +33,7 @@ import io.swagger.annotations.ApiResponses;
  */
 @Path("/simulations")
 @Api(value = "/simulations", tags = "Simulation", description = "Verwaltet Simulationsläufe")
+@RequiresAuthentication
 public class OptimisationEndpoint { // TODO Umbenennen JobstartEndpoint
 
    private static final int MAX_GAMS_IDENTIFIER_LENGTH = 61;

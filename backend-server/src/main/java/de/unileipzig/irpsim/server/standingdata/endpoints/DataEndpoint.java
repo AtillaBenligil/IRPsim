@@ -24,6 +24,7 @@ import de.unileipzig.irpsim.core.simulation.data.persistence.ClosableEntityManag
 import de.unileipzig.irpsim.core.standingdata.data.Stammdatum;
 import de.unileipzig.irpsim.core.standingdata.data.StaticData;
 import de.unileipzig.irpsim.server.data.Responses;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -31,6 +32,7 @@ import io.swagger.annotations.ApiResponses;
 
 @Path("/stammdaten")
 @Api(value = "/stammdaten/{id}/data", tags = { "Stammdaten", "Datensatz" }, description = "Repräsentiert die Datensätze eines Stammdatums.")
+@RequiresAuthentication
 public class DataEndpoint {
 
 	@Path("/{id}/data")

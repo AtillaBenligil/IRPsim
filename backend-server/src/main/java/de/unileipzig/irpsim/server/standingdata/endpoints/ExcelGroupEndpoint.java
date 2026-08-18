@@ -31,8 +31,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
+
 @Path("/stammdaten")
 @Api(value = "/stammdaten/excel", tags = "Stammdaten", description = "Ermöglicht es, Excel-Daten hinzuzufügen.")
+@RequiresAuthentication
 public class ExcelGroupEndpoint {
 
 	@Path("/excel")

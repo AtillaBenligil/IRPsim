@@ -36,6 +36,7 @@ import de.unileipzig.irpsim.core.simulation.data.persistence.OptimisationYearPer
 import de.unileipzig.irpsim.core.simulation.data.persistence.State;
 import de.unileipzig.irpsim.server.optimisation.Job;
 import de.unileipzig.irpsim.server.optimisation.queue.OptimisationJobHandler;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -48,6 +49,7 @@ import io.swagger.annotations.ApiResponses;
  */
 @Path("/simulations")
 @Api(value = "/simulations/states", tags = "Simulation", description = "Gibt Simulationsstati zurück")
+@RequiresAuthentication
 public class OptimisationStateEndpoint {//TODO Umbenennen StateEndpoint
 
    private static final Logger LOG = LogManager.getLogger(OptimisationStateEndpoint.class);

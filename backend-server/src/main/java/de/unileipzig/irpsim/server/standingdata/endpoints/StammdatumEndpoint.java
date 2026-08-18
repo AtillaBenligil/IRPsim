@@ -28,6 +28,8 @@ import de.unileipzig.irpsim.core.standingdata.StaticDataUtil;
 import de.unileipzig.irpsim.core.standingdata.SzenarioSet;
 import de.unileipzig.irpsim.core.standingdata.data.Stammdatum;
 import de.unileipzig.irpsim.server.data.Responses;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
+import de.unileipzig.irpsim.server.security.authorization.RequiresGroup;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -40,6 +42,7 @@ import io.swagger.annotations.ApiResponses;
  */
 @Path("/stammdaten")
 @Api(value = "/stammdaten", tags = "Stammdaten", description = "Repräsentiert Stammdaten.")
+@RequiresAuthentication
 public class StammdatumEndpoint {
 
 	@GET
@@ -137,6 +140,7 @@ public class StammdatumEndpoint {
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
+	@RequiresGroup("admin")
 	@ApiOperation(value = "Fügt neues Stammdatum hinzu", notes = "Fügt Stammdaten hinzu. Sind sie bereits vorhanden, wird ein Fehler ausgegeben. Für das Ändern sollte der Endpunkt des Stammdatums angesprochen werden.")
 	public final Response putStammdatum(final Stammdatum stammdatum) throws JsonProcessingException {
 		try (final ClosableEntityManager em = ClosableEntityManagerProxy.newInstance()) {

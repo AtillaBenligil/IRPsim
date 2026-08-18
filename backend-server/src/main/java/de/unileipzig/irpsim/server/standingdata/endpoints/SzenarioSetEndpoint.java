@@ -32,11 +32,13 @@ import de.unileipzig.irpsim.core.simulation.data.persistence.ClosableEntityManag
 import de.unileipzig.irpsim.core.standingdata.SzenarioSet;
 import de.unileipzig.irpsim.core.standingdata.SzenarioSetElement;
 import de.unileipzig.irpsim.server.data.Responses;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @Path("/szenariosets")
 @Api(value = "/szenariosets", tags = "Prognoseszenarien")
+@RequiresAuthentication
 public class SzenarioSetEndpoint {
 
 	static final Logger LOG = LogManager.getLogger(SzenarioSetEndpoint.class);

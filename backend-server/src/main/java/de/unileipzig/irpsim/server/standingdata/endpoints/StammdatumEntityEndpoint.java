@@ -47,6 +47,7 @@ import de.unileipzig.irpsim.core.standingdata.data.AlgebraicData;
 import de.unileipzig.irpsim.core.standingdata.data.Datensatz;
 import de.unileipzig.irpsim.core.standingdata.data.Stammdatum;
 import de.unileipzig.irpsim.server.data.Responses;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
 import de.unileipzig.irpsim.server.standingdata.endpoints.utils.AlgebraicDataUpdater;
 import de.unileipzig.irpsim.server.standingdata.excel.ImportTemplateGenerator;
 import io.swagger.annotations.Api;
@@ -57,6 +58,7 @@ import io.swagger.annotations.ApiResponses;
 
 @Path("/stammdaten")
 @Api(value = "/stammdaten/{id}", tags = "Stammdaten")
+@RequiresAuthentication
 public class StammdatumEntityEndpoint {
 	public static final ObjectMapper MAPPER = new ObjectMapper();
 	private static final Logger LOG = LogManager.getLogger(StammdatumEntityEndpoint.class);

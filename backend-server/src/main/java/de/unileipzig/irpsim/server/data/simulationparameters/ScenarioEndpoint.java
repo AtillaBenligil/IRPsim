@@ -15,6 +15,8 @@ import de.unileipzig.irpsim.core.simulation.data.persistence.ClosableEntityManag
 import de.unileipzig.irpsim.core.standingdata.SzenarioSet;
 import de.unileipzig.irpsim.server.data.Responses;
 import de.unileipzig.irpsim.server.data.modeldefinitions.ModelDefinitionsEndpoint;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
+import de.unileipzig.irpsim.server.security.authorization.RequiresGroup;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -48,6 +50,7 @@ import static de.unileipzig.irpsim.server.data.Responses.errorResponse;
  */
 @Path("/szenarien")
 @Api(value = "/szenarien", tags = "Szenario")
+@RequiresAuthentication
 public class ScenarioEndpoint {
 
    private static final Logger LOG = LogManager.getLogger(ScenarioEndpoint.class);
@@ -178,6 +181,7 @@ public class ScenarioEndpoint {
    @DELETE
    @Produces(MediaType.APPLICATION_JSON)
    @Path("/{id}")
+   @RequiresGroup("admin")
    @ApiOperation(value = "Löscht Parameter nach einer bestimmen Id", notes = "Prüft, ob der Parametersatz mit der übergebenen Id löschbar ist, und löscht ihn, falls er löschbar ist.")
    @ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"), @ApiResponse(code = 400, message = "Bad Request") })
    public final Response deleteParameter(@PathParam("id") final int id) throws JsonParseException, JsonMappingException, IOException {
@@ -215,6 +219,7 @@ public class ScenarioEndpoint {
     */
    @PUT
    @Consumes(MediaType.APPLICATION_JSON)
+      @RequiresGroup("admin")
    @ApiOperation(value = "Fügt neuen Simulationsparameter hinzu", notes = "Fügt den übergebenen Parametersatz in die Datenbank ein. "
          + "Dabei werden Metadaten, wie Erstellungsdatum und Modelltyp, automatisch generiert.")
    @ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"), @ApiResponse(code = 400, message = "Bad Request") })
@@ -248,6 +253,7 @@ public class ScenarioEndpoint {
    @PUT
    @Path("/{id}")
    @Consumes(MediaType.APPLICATION_JSON)
+      @RequiresGroup("admin")
    @ApiOperation(value = "Fügt neuen Simulationsparameter hinzu", notes = "Fügt den übergebenen Parametersatz in die Datenbank ein. "
          + "Dabei werden Metadaten, wie Erstellungsdatum und Modelltyp, automatisch generiert.")
    @ApiResponses(value = { @ApiResponse(code = 200, message = "Ok"), @ApiResponse(code = 400, message = "Bad Request") })

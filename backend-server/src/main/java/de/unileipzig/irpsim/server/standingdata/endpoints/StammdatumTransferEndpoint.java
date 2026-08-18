@@ -33,6 +33,7 @@ import de.unileipzig.irpsim.core.standingdata.data.AlgebraicData;
 import de.unileipzig.irpsim.core.standingdata.data.Stammdatum;
 import de.unileipzig.irpsim.core.standingdata.data.StaticData;
 import de.unileipzig.irpsim.server.data.Responses;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
 import de.unileipzig.irpsim.server.standingdata.endpoints.data.ExportError;
 import de.unileipzig.irpsim.server.standingdata.transfer.TransferData;
 import de.unileipzig.irpsim.server.standingdata.transfer.TransferDatensatz;
@@ -44,6 +45,7 @@ import io.swagger.annotations.ApiResponses;
 
 @Path("/stammdaten")
 @Api(value = "/stammdaten/export", tags = "Stammdaten", description = "Verwaltet Im- und Export von Stammdaten.")
+@RequiresAuthentication
 public class StammdatumTransferEndpoint {
 
 	private static final Logger LOG = LogManager.getLogger(ExportError.class);

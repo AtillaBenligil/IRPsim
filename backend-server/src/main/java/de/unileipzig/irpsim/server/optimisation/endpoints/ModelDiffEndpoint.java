@@ -8,6 +8,7 @@ import de.unileipzig.irpsim.core.simulation.data.persistence.OptimisationJobPers
 import de.unileipzig.irpsim.server.optimisation.comparators.modelDifferences.ModelDifference;
 import de.unileipzig.irpsim.server.optimisation.comparators.modelDifferences.PerformanceModelComparator;
 import de.unileipzig.irpsim.server.optimisation.queue.OptimisationJobHandler;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -35,6 +36,7 @@ import static java.util.Comparator.comparingInt;
  */
 @Path("modeldifference")
 @Api(value = "/modeldifference", tags = "Model Difference")
+@RequiresAuthentication
 public class ModelDiffEndpoint {
 
    private static final Logger LOG = LogManager.getLogger(ModelDiffEndpoint.class);

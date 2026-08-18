@@ -32,6 +32,7 @@ import com.google.gson.JsonParser;
 import de.unileipzig.irpsim.core.data.simulationparameters.GdxConfiguration;
 import de.unileipzig.irpsim.core.simulation.data.persistence.ClosableEntityManager;
 import de.unileipzig.irpsim.core.simulation.data.persistence.ClosableEntityManagerProxy;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -42,6 +43,7 @@ import io.swagger.annotations.ApiResponses;
  */
 @Path("/exportconfigurations")
 @Api(value = "/exportconfigurations", tags = "GDX")
+@RequiresAuthentication
 public class GdxExportEndpoint {
 
    private static final Logger LOG = LogManager.getLogger(GdxExportEndpoint.class);

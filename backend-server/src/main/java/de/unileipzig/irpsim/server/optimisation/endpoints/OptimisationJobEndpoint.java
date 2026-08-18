@@ -30,6 +30,8 @@ import de.unileipzig.irpsim.core.simulation.data.persistence.State;
 import de.unileipzig.irpsim.server.optimisation.Job;
 import de.unileipzig.irpsim.server.optimisation.OptimisationJobUtils;
 import de.unileipzig.irpsim.server.optimisation.queue.OptimisationJobHandler;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
+import de.unileipzig.irpsim.server.security.authorization.RequiresGroup;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -43,6 +45,7 @@ import io.swagger.annotations.ApiResponses;
 @Path("simulations")
 @Api(value = "/simulations/{simulationid}", tags = "Simulation")
 @Produces({ "application/json" })
+@RequiresAuthentication
 public class OptimisationJobEndpoint { // TODO Umbenennen JobEndpoint
 
    private static final Logger LOG = LogManager.getLogger(OptimisationJobEndpoint.class);
@@ -194,6 +197,7 @@ public class OptimisationJobEndpoint { // TODO Umbenennen JobEndpoint
    @Path("/{simulationid}")
    @DELETE
    @Produces(MediaType.APPLICATION_JSON)
+   @RequiresGroup("admin")
    @ApiOperation(value = "Beendet den aktiven Simulationslauf ODER Löscht den gepeicherten bereits beendeten Simulationsjob.", notes = "Beendet den Simulationslauf über die GAMS-API.")
    @ApiResponses(value = { @ApiResponse(code = 200, message = "OK"),
          @ApiResponse(code = 500, message = "Interner Server Fehler (Beenden ist evtl. dennoch erfolgt)") })

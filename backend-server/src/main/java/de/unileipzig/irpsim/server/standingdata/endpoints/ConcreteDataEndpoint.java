@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import de.unileipzig.irpsim.core.data.timeseries.LoadElement;
 import de.unileipzig.irpsim.core.standingdata.DataLoader;
 import de.unileipzig.irpsim.server.data.Responses;
+import de.unileipzig.irpsim.server.security.authorization.RequiresAuthentication;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -30,6 +31,7 @@ import io.swagger.annotations.ApiResponses;
 
 @Path("/stammdaten")
 @Api(value = "/stammdaten/concretedata", tags = "Stammdaten", description = "Repräsentiert die konkreten Daten eines Datensatzes.")
+@RequiresAuthentication
 public class ConcreteDataEndpoint {
 	private static final Logger LOG = LogManager.getLogger(ConcreteDataEndpoint.class);
 
