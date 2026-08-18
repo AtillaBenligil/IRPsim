@@ -59,7 +59,7 @@ public class AuthorizationRequestFilterTest {
    private static ResourceInfo mockResourceInfo(final Class<?> clazz, final String methodName) throws Exception {
       final Method method = clazz.getDeclaredMethod(methodName);
       final ResourceInfo resourceInfo = Mockito.mock(ResourceInfo.class);
-      Mockito.when(resourceInfo.getResourceClass()).thenReturn(clazz);
+      Mockito.doReturn(clazz).when(resourceInfo).getResourceClass();
       Mockito.when(resourceInfo.getResourceMethod()).thenReturn(method);
       return resourceInfo;
    }

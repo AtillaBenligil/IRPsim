@@ -59,6 +59,9 @@
 						<IRPSIM_MYSQL_USER_TEST>root</IRPSIM_MYSQL_USER_TEST>
 						<IRPSIM_MYSQL_PASSWORD_TEST>test123</IRPSIM_MYSQL_PASSWORD_TEST>
 					</environmentVariables>
+					<systemPropertyVariables>
+						<irpsim.ldap.config.file>${project.build.directory}/ldap/ldap.properties</irpsim.ldap.config.file>
+					</systemPropertyVariables>
 					<trimStackTrace>false</trimStackTrace>
 					<forkedProcessTimeoutInSeconds>1500</forkedProcessTimeoutInSeconds>
 					<argLine>-Djava.library.path=${nativelib.directory}</argLine>
@@ -120,6 +123,22 @@
 				<version>1.5.0</version>
 				<executions>
 					<execution>
+						<id>LDAP start</id>
+						<phase>process-test-classes</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<skip>${skipTests}</skip>
+							<executable>${basedir}/src/test/scripts/starttestldap.sh</executable>
+							<arguments>
+								<argument>${basedir}/src/test/resources/ldap</argument>
+								<argument>${project.build.directory}/ldap</argument>
+							</arguments>
+							<skip>${skipUnitTests}</skip>
+						</configuration>
+					</execution>
+					<execution>
 						<id>Copy JAR</id>
 						<phase>generate-sources</phase>
 						<goals>
@@ -157,6 +176,21 @@
 						<configuration>
 							<skip>${skipTests}</skip>
 							<executable>${basedir}/src/test/scripts/stoptestdb.sh</executable>
+							<skip>${skipUnitTests}</skip>
+						</configuration>
+					</execution>
+					<execution>
+						<id>LDAP stop</id>
+						<phase>test</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<skip>${skipTests}</skip>
+							<executable>${basedir}/src/test/scripts/stoptestldap.sh</executable>
+							<arguments>
+								<argument>${project.build.directory}/ldap</argument>
+							</arguments>
 							<skip>${skipUnitTests}</skip>
 						</configuration>
 					</execution>
@@ -422,6 +456,69 @@
 	</dependencies>
 
 	<profiles>
+		<profile>
+			<id>windows</id>
+			<!-- The test LDAP/DB helper scripts are POSIX shell scripts. exec-maven-plugin
+				invokes the configured <executable> directly via the OS process API, which
+				cannot run a shebang script on Windows. This profile routes them through
+				bash (provided by Git for Windows) instead, so `mvn test`/`package` also
+				starts and stops the LDAP server automatically on Windows. -->
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>exec-maven-plugin</artifactId>
+						<groupId>org.codehaus.mojo</groupId>
+						<executions>
+							<execution>
+								<id>LDAP start</id>
+								<configuration>
+									<executable>bash</executable>
+									<arguments>
+										<argument>${basedir}/src/test/scripts/starttestldap.sh</argument>
+										<argument>${basedir}/src/test/resources/ldap</argument>
+										<argument>${project.build.directory}/ldap</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>Database start</id>
+								<configuration>
+									<executable>bash</executable>
+									<arguments>
+										<argument>${basedir}/src/test/scripts/starttestdb.sh</argument>
+										<argument>${basedir}/target/import/</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>Database stop</id>
+								<configuration>
+									<executable>bash</executable>
+									<arguments>
+										<argument>${basedir}/src/test/scripts/stoptestdb.sh</argument>
+									</arguments>
+								</configuration>
+							</execution>
+							<execution>
+								<id>LDAP stop</id>
+								<configuration>
+									<executable>bash</executable>
+									<arguments>
+										<argument>${basedir}/src/test/scripts/stoptestldap.sh</argument>
+										<argument>${project.build.directory}/ldap</argument>
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 		<profile>
 			<id>fastTests</id>
 			<!-- fastTests beinhaltet alle Tests, die schnell durchlaufen. Damit ist 

@@ -1,0 +1,11 @@
+dn: ou=people,dc=irpsim,dc=local
+objectClass: organizationalUnit
+ou: people
+
+dn: uid=alice,ou=people,dc=irpsim,dc=local
+objectClass: inetOrgPerson
+uid: alice
+cn: Alice Analyst
+sn: Analyst
+mail: alice@irpsim.local
+userPassword: secret123

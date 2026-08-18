@@ -31,12 +31,16 @@ public class JndiLdapAuthenticationService implements LdapAuthenticationService 
       }
 
       final String userDn = config.buildUserDn(username);
-      try (DirContext ignored = new InitialDirContext(buildEnvironment(userDn, password))) {
+      DirContext context = null;
+      try {
+         context = new InitialDirContext(buildEnvironment(userDn, password));
          return AuthenticationResult.success(Collections.emptySet());
       } catch (final AuthenticationException e) {
          return AuthenticationResult.failed("invalid credentials");
       } catch (final NamingException e) {
          return AuthenticationResult.failed("ldap error: " + e.getMessage());
+      } finally {
+         closeQuietly(context);
       }
    }
 
@@ -47,7 +51,9 @@ public class JndiLdapAuthenticationService implements LdapAuthenticationService 
       }
 
       final String userDn = config.buildUserDn(username);
-      try (DirContext context = new InitialDirContext(buildEnvironment(userDn, oldPassword))) {
+      DirContext context = null;
+      try {
+         context = new InitialDirContext(buildEnvironment(userDn, oldPassword));
          final ModificationItem[] modifications = new ModificationItem[] {
                new ModificationItem(DirContext.REPLACE_ATTRIBUTE, new BasicAttribute("userPassword", newPassword))
          };
@@ -55,6 +61,8 @@ public class JndiLdapAuthenticationService implements LdapAuthenticationService 
          return true;
       } catch (final NamingException e) {
          return false;
+      } finally {
+         closeQuietly(context);
       }
    }
 
@@ -70,5 +78,15 @@ public class JndiLdapAuthenticationService implements LdapAuthenticationService 
 
    private static boolean isBlank(final String value) {
       return value == null || value.trim().isEmpty();
+   }
+
+   private static void closeQuietly(final DirContext context) {
+      if (context != null) {
+         try {
+            context.close();
+         } catch (final NamingException ignored) {
+            // nothing to do if the LDAP connection cannot be closed cleanly
+         }
+      }
    }
 }
