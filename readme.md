@@ -1,3 +1,9 @@
+> **Hinweis zur Studienarbeit:** Dieses Repository enthaelt IRPact und diente
+> der ersten Sprintphase. Die Arbeit an der LDAP-Authentifizierung und der
+> Rechteverwaltung findet in den Forks der IRPsim-Plattform statt:
+> [AtillaBenligil/backend](https://github.com/AtillaBenligil/backend) und
+> [AtillaBenligil/ui-client](https://github.com/AtillaBenligil/ui-client).
+
 # IRPact
 [![Java CI](https://github.com/IRPsim/IRPact/actions/workflows/ci.yml/badge.svg)](https://github.com/IRPsim/IRPact/actions/workflows/ci.yml)
 
