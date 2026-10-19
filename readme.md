@@ -1,8 +1,11 @@
-> **Hinweis zur Studienarbeit:** Dieses Repository enthaelt IRPact und diente
-> der ersten Sprintphase. Die Arbeit an der LDAP-Authentifizierung und der
-> Rechteverwaltung findet in den Forks der IRPsim-Plattform statt:
-> [AtillaBenligil/backend](https://github.com/AtillaBenligil/backend) und
-> [AtillaBenligil/ui-client](https://github.com/AtillaBenligil/ui-client).
+> **About this repository (university project, 2026):** this is a copy of the
+> open-source [IRPact](https://github.com/IRPsim/IRPact) framework that I used as the
+> baseline for a software-engineering project: a reproducible build, a CI pipeline on
+> Java 17 and 21, and a security plan. The implementation itself, LDAP authentication
+> and role-based access control for the IRPsim platform, lives in my forks:
+> [backend](https://github.com/AtillaBenligil/backend) (Java) and
+> [ui-client](https://github.com/AtillaBenligil/ui-client) (AngularJS).
+> See [irpsim-security-implementation-plan.md](irpsim-security-implementation-plan.md) for the plan.
 
 # IRPact
 [![Java CI](https://github.com/IRPsim/IRPact/actions/workflows/ci.yml/badge.svg)](https://github.com/IRPsim/IRPact/actions/workflows/ci.yml)
